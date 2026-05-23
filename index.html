@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículo profissional de Alison Sampaio de Oliveira — Logística, Operações e Controladoria no agronegócio.">
+  <title>Alison Sampaio de Oliveira | Logística & Controladoria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --font-sans: "Outfit", system-ui, sans-serif;
+      --font-serif: "Fraunces", Georgia, serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --accent: #1e6b45;
+      --accent-light: #2d9a66;
+      --accent-glow: rgba(30, 107, 69, 0.35);
+      --gradient-1: #1e6b45;
+      --gradient-2: #0d4a6e;
+      --gradient-3: #3d8b5f;
+      --bg: #f8faf9;
+      --bg-elevated: #ffffff;
+      --text: #1a2420;
+      --text-muted: #5a6b63;
+      --border: rgba(30, 107, 69, 0.12);
+      --glass: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --nav-height: 72px;
+      --progress: 0%;
+    }
+
+    [data-theme="dark"] {
+      --accent: #4ade80;
+      --accent-light: #86efac;
+      --accent-glow: rgba(74, 222, 128, 0.25);
+      --gradient-1: #14532d;
+      --gradient-2: #0c4a6e;
+      --gradient-3: #166534;
+      --bg: #0f1412;
+      --bg-elevated: #1a221e;
+      --text: #ecfdf5;
+      --text-muted: #94a89e;
+      --border: rgba(74, 222, 128, 0.15);
+      --glass: rgba(26, 34, 30, 0.85);
+      --glass-border: rgba(74, 222, 128, 0.12);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 16px); }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: var(--progress);
+      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3), var(--accent-light));
+      z-index: 1001;
+      transition: width 0.1s linear;
+    }
+
+    .nav {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1100px, calc(100% - 24px));
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 0.85rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+      background: var(--border);
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+    .theme-toggle,
+    .nav-toggle {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background var(--transition);
+    }
+
+    .theme-toggle:hover,
+    .nav-toggle:hover { transform: scale(1.05); }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 10px; }
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-height) + 48px) 1.5rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.4;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .blob-1 { width: 320px; height: 320px; background: #4ade80; top: 10%; left: 5%; animation-delay: 0s; }
+    .blob-2 { width: 280px; height: 280px; background: #38bdf8; bottom: 15%; right: 10%; animation-delay: -3s; }
+    .blob-3 { width: 200px; height: 200px; background: #fbbf24; top: 50%; left: 40%; animation-delay: -5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(20px, -30px) scale(1.05); }
+      66% { transform: translate(-15px, 20px) scale(0.95); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+    }
+
+    .photo-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent-light), var(--gradient-2), var(--gradient-3), var(--accent-light));
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .photo-wrap img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-meta {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-objective {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-objective span {
+      padding: 0.35rem 0.85rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s, background var(--transition);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--gradient-1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2); }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.22); }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    section { padding: 4rem 0; }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .highlight-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      transform-style: preserve-3d;
+      perspective: 800px;
+    }
+
+    .highlight-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .highlight-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-tag {
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .skill-tag:hover,
+    .skill-tag.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .skill-bars { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 48px;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-row label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .skill-track {
+      height: 10px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--gradient-1), var(--accent-light));
+      border-radius: 999px;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skill-row.animated .skill-fill { width: var(--pct); }
+
+    .skill-pct {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: right;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .chart-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .chart-wrap { position: relative; height: 220px; }
+
+    .edu-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .edu-card strong { font-size: 1.1rem; display: block; margin-bottom: 0.25rem; }
+    .edu-card .period { color: var(--text-muted); font-size: 0.9rem; white-space: nowrap; }
+
+    .exp-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-tab {
+      padding: 0.5rem 1.25rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .exp-tab:hover,
+    .exp-tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .timeline-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .timeline-item.hidden { display: none; }
+
+    .timeline-header {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: var(--text);
+      transition: background var(--transition);
+    }
+
+    .timeline-header:hover { background: var(--border); }
+
+    .timeline-header .title-wrap { flex: 1; min-width: 200px; }
+
+    .timeline-header .job-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: block;
+    }
+
+    .timeline-header .company {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .timeline-header .period {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .timeline-chevron {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s;
+      color: var(--accent);
+    }
+
+    .timeline-item.open .timeline-chevron { transform: rotate(180deg); }
+
+    .timeline-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .timeline-item.open .timeline-body { max-height: 2000px; }
+
+    .timeline-content {
+      padding: 0 1.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-content .job-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 1rem 0 0.75rem;
+    }
+
+    .timeline-content ul {
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .timeline-content li { margin-bottom: 0.5rem; }
+
+    .timeline-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .contact-item span { font-size: 0.9rem; color: var(--text-muted); word-break: break-all; }
+
+    .copy-btn {
+      flex-shrink: 0;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--accent);
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .copy-btn:hover { background: var(--border); }
+
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      padding: 0.75rem 1.5rem;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1100;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+      z-index: 999;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-top:hover { transform: translateY(-3px); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
+
+    .reveal-stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .charts-grid { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .hero-cta { justify-content: center; }
+      .skill-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .skill-pct { text-align: left; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: calc(var(--nav-height) + 24px);
+        left: 50%;
+        transform: translateX(-50%) scale(0.95);
+        width: min(1100px, calc(100% - 24px));
+        flex-direction: column;
+        padding: 1rem;
+        background: var(--glass);
+        backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) scale(1);
+      }
+
+      .nav-toggle { display: flex; }
+      .nav-brand { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Principal">
+    <a href="#inicio" class="nav-brand">Alison S. Oliveira</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio" data-section="inicio">Início</a></li>
+      <li><a href="#destaques" data-section="destaques">Destaques</a></li>
+      <li><a href="#competencias" data-section="competencias">Competências</a></li>
+      <li><a href="#formacao" data-section="formacao">Formação</a></li>
+      <li><a href="#experiencia" data-section="experiencia">Experiência</a></li>
+      <li><a href="#contato" data-section="contato">Contato</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro">
+        <span id="themeIcon">🌙</span>
+      </button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+    <div class="blob blob-3" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="photo-wrap">
+        <div class="photo-ring" aria-hidden="true"></div>
+        <img src="Alison.jpg" alt="Alison Sampaio de Oliveira" width="200" height="200">
+      </div>
+      <div class="hero-content">
+        <h1>Alison Sampaio de Oliveira</h1>
+        <p class="hero-tagline">Logística · Operações · Controladoria</p>
+        <p class="hero-meta">Brasileiro, casado · Rio Verde/GO</p>
+        <div class="hero-objective">
+          <span>Logística</span>
+          <span>Operacional</span>
+          <span>Controladoria</span>
+        </div>
+        <div class="hero-cta">
+          <a href="curriculum.pdf" class="btn btn-primary" download>Baixar PDF</a>
+          <a href="#experiencia" class="btn btn-ghost">Ver experiência</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="stats-grid reveal" id="stats">
+        <div class="stat-card">
+          <div class="stat-value" data-target="22" data-suffix="+">0</div>
+          <div class="stat-label">Anos de experiência</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="30" data-suffix="+">0</div>
+          <div class="stat-label">Pessoas lideradas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="6" data-suffix="">0</div>
+          <div class="stat-label">Unidades Integra</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-text="ISO">—</div>
+          <div class="stat-label">9001 · 14001 · 22000</div>
+        </div>
+      </div>
+
+      <section id="destaques" aria-labelledby="destaques-title">
+        <h2 class="section-title reveal" id="destaques-title">Destaques</h2>
+        <p class="section-sub reveal">Trajetória sólida no agronegócio com foco em logística, controladoria fiscal e liderança de equipes multidisciplinares.</p>
+        <div class="highlights reveal-stagger" id="highlights">
+          <article class="highlight-card" data-tilt>
+            <div class="icon" aria-hidden="true">🚚</div>
+            <h3>Logística integrada</h3>
+            <p>Planejamento de entregas de insumos (sementes, fertilizantes e defensivos) para seis unidades Integra no Sudoeste Goiano.</p>
+          </article>
+          <article class="highlight-card" data-tilt>
+            <div class="icon" aria-hidden="true">📊</div>
+            <h3>Controladoria fiscal</h3>
+            <p>16 anos na Cargill com fechamento fiscal, planejamento tributário e atendimento a órgãos municipais, estaduais e federais.</p>
+          </article>
+          <article class="highlight-card" data-tilt>
+            <div class="icon" aria-hidden="true">🛡️</div>
+            <h3>Compliance & auditoria</h3>
+            <p>Auditor interno/externo de processos administrativos e operacionais em escala Brasil; segurança patrimonial e CFTV.</p>
+          </article>
+          <article class="highlight-card" data-tilt>
+            <div class="icon" aria-hidden="true">✅</div>
+            <h3>Certificações ISO</h3>
+            <p>Auditor interno ISO 9001 (Qualidade), ISO 14001 (Ambiental) e ISO 22000 (Segurança de Alimentos).</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="competencias" aria-labelledby="competencias-title">
+        <h2 class="section-title reveal" id="competencias-title">Competências</h2>
+        <p class="section-sub reveal">Clique nas tags para destacar uma competência nos gráficos.</p>
+        <div class="skills-tags reveal" id="skillTags" role="tablist" aria-label="Filtrar competências">
+          <button type="button" class="skill-tag active" data-skill="all">Todas</button>
+          <button type="button" class="skill-tag" data-skill="logistica">Logística</button>
+          <button type="button" class="skill-tag" data-skill="operacoes">Operações</button>
+          <button type="button" class="skill-tag" data-skill="fiscal">Fiscal</button>
+          <button type="button" class="skill-tag" data-skill="lideranca">Liderança</button>
+          <button type="button" class="skill-tag" data-skill="orcamento">Orçamento</button>
+          <button type="button" class="skill-tag" data-skill="compliance">Compliance</button>
+        </div>
+        <div class="skill-bars reveal" id="skillBars">
+          <div class="skill-row" data-skill="logistica" style="--pct: 95%">
+            <label for="s1">Logística</label>
+            <div class="skill-track"><div class="skill-fill" id="s1"></div></div>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-row" data-skill="operacoes" style="--pct: 92%">
+            <label for="s2">Operações</label>
+            <div class="skill-track"><div class="skill-fill" id="s2"></div></div>
+            <span class="skill-pct">92%</span>
+          </div>
+          <div class="skill-row" data-skill="fiscal" style="--pct: 90%">
+            <label for="s3">Fiscal</label>
+            <div class="skill-track"><div class="skill-fill" id="s3"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-row" data-skill="lideranca" style="--pct: 88%">
+            <label for="s4">Liderança</label>
+            <div class="skill-track"><div class="skill-fill" id="s4"></div></div>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-row" data-skill="orcamento" style="--pct: 85%">
+            <label for="s5">Orçamento</label>
+            <div class="skill-track"><div class="skill-fill" id="s5"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-row" data-skill="compliance" style="--pct: 82%">
+            <label for="s6">Compliance</label>
+            <div class="skill-track"><div class="skill-fill" id="s6"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+        </div>
+        <div class="charts-grid reveal">
+          <div class="chart-card">
+            <h3>Perfil radar</h3>
+            <div class="chart-wrap"><canvas id="chartRadar" aria-label="Gráfico radar de competências"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3>Distribuição</h3>
+            <div class="chart-wrap"><canvas id="chartDoughnut" aria-label="Gráfico de rosca"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3>Comparativo</h3>
+            <div class="chart-wrap"><canvas id="chartBar" aria-label="Gráfico de barras"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formacao" aria-labelledby="formacao-title">
+        <h2 class="section-title reveal" id="formacao-title">Formação acadêmica</h2>
+        <div class="edu-card reveal">
+          <div>
+            <strong>Graduação em Administração de Empresas</strong>
+            <span>UNAERP — Universidade de Ribeirão Preto, Campus Guarujá/SP</span>
+          </div>
+          <span class="period">Concluído em 06/2005</span>
+        </div>
+      </section>
+
+      <section id="experiencia" aria-labelledby="experiencia-title">
+        <h2 class="section-title reveal" id="experiencia-title">Experiência profissional</h2>
+        <p class="section-sub reveal">Multinacional Cargill (16 anos) e Grupo Lavoro/Integra (atual). Clique em cada cargo para expandir.</p>
+        <div class="exp-tabs reveal" role="tablist" aria-label="Filtrar experiências">
+          <button type="button" class="exp-tab active" data-filter="all">Todos</button>
+          <button type="button" class="exp-tab" data-filter="lavoro">Lavoro</button>
+          <button type="button" class="exp-tab" data-filter="cargill">Cargill</button>
+        </div>
+        <div class="timeline reveal" id="timeline">
+
+          <article class="timeline-item open" data-company="lavoro">
+            <button type="button" class="timeline-header" aria-expanded="true">
+              <div class="title-wrap">
+                <span class="job-title">Coordenador Logístico e Operações</span>
+                <span class="company">Grupo Lavoro — Integra / Produtec Comércio e Representações</span>
+              </div>
+              <span class="period">Desde 04/2020</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Revenda de insumos agrícolas — defensivos, fertilizantes, sementes de soja e milho · Unidade Rio Verde/GO</p>
+                <ul>
+                  <li>Planejamento das entregas (semente de soja e milho, fertilizantes e defensivos químicos) das lojas Integra do Sudoeste Goiano (Jataí, Rio Verde, Paraúna, Santa Helena, Goiatuba e Caiapônia) até as propriedades rurais.</li>
+                  <li>Planejamento orçamentário dos fretes.</li>
+                  <li>Controle de estoque e integrante da equipe do comitê de inventário.</li>
+                  <li>Liderança das equipes de faturamento, logística e operacional (~10 colaboradores).</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Supervisor Administrativo — Segurança Patrimonial e Compliance</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">07/2015 — 07/2018</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Regional Rio Verde/GO — Fábrica, armazéns e transbordos</p>
+                <ul>
+                  <li>Integrante da equipe Brasil de auditores internos e externos dos processos administrativos e operacionais, com atuação em regiões portuárias (Guarujá, Santos, Paranaguá, Porto Velho, Santarém), fábricas (Uberlândia, Ponta Grossa, Mairinque, Rio Verde) e armazéns/transbordos em GO, MG e SP.</li>
+                  <li>Garantia de aderência dos departamentos aos processos de compliance conforme política da empresa.</li>
+                  <li>Responsável pelas equipes de monitoramento CFTV, portaria, vigilância patrimonial e auditores (~20 colaboradores diretos e indiretos em 1 fábrica, 8 armazéns e 10 transbordos).</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Supervisor Administrativo — Controladoria, Logística e Operacional</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">08/2014 — 06/2015</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Unidade Montividiu/GO — Armazém</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Encarregado Fiscal — Controladoria</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">02/2013 — 07/2014</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Regional Rio Verde/GO — Fábrica, armazéns e transbordos</p>
+                <ul>
+                  <li>Planejamento fiscal das operações da fábrica de Rio Verde/GO (farelo de soja, óleos Liza e Veleiro, óleo degomado, exportação de soja via Santos ou Paranaguá, compra de soja no sudoeste goiano).</li>
+                  <li>Liderança da equipe fiscal (~8 colaboradores).</li>
+                  <li>Fechamento dos livros fiscais (ISS, ICMS, tributos federais, estaduais GO e municipais) para fábrica, armazéns e transbordos.</li>
+                  <li>Atendimento a fiscalizações municipais, estaduais, federais e certificações da regional.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Encarregado Fiscal — Controladoria</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">02/2010 — 01/2013</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Unidade Guarujá/SP — Porto marítimo</p>
+                <ul>
+                  <li>Planejamento fiscal do terminal marítimo (exportações de soja, farelo, milho e açúcar a granel).</li>
+                  <li>Liderança da equipe fiscal (~6 colaboradores).</li>
+                  <li>Fechamento fiscal (ISS, ICMS, tributos federais, estaduais SP e municipais).</li>
+                  <li>Atendimento a fiscalizações e certificações; integrante da equipe Brasil de auditores internos e externos.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Assistente Administrativo — Controladoria</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">08/2007 — 01/2010</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Unidade Guarujá/SP — Terminal marítimo</p>
+                <ul>
+                  <li>Faturamento e apoio ao fechamento de livros fiscais e apuração de tributos.</li>
+                  <li>Apoio em fiscalizações (municipal, estadual SP, federal, Alfândega Santos, Codesp).</li>
+                  <li>Auditor interno das certificações ISO 9001, ISO 14001 e ISO 22000.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Assistente Administrativo — Controladoria</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">05/2003 — 07/2007</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Unidade Santos/SP — Terminal marítimo Teag T33</p>
+                <ul>
+                  <li>Controle de estoque e faturamento; apoio a contas a pagar, fiscal e contábil.</li>
+                  <li>Apoio em fiscalizações e certificações do terminal marítimo de Santos/SP.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-company="cargill">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="title-wrap">
+                <span class="job-title">Estagiário — Escrita Fiscal</span>
+                <span class="company">Grupo Cargill Agrícola S.A.</span>
+              </div>
+              <span class="period">08/2002 — 04/2003</span>
+              <svg class="timeline-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="timeline-body">
+              <div class="timeline-content">
+                <p class="job-meta">Unidade Guarujá/SP — Terminal marítimo · Departamento de Controladoria</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <p class="timeline-note reveal">Experiência total na Cargill: 08/2002 a 07/2018 (16 anos).</p>
+      </section>
+
+      <section id="contato" aria-labelledby="contato-title">
+        <h2 class="section-title reveal" id="contato-title">Contato</h2>
+        <p class="section-sub reveal">Rua BV 05, Qd. 17, Lt. 17 — Bela Vista — Rio Verde/GO — CEP 75.910-838</p>
+        <div class="contact-grid reveal">
+          <div class="contact-item">
+            <span id="emailText">alisonsampaio70@gmail.com</span>
+            <button type="button" class="copy-btn" data-copy="alisonsampaio70@gmail.com" aria-label="Copiar e-mail">Copiar</button>
+          </div>
+          <div class="contact-item">
+            <span id="phoneText">(64) 9 9918-0408</span>
+            <button type="button" class="copy-btn" data-copy="(64) 9 9918-0408" aria-label="Copiar celular">Copiar</button>
+          </div>
+          <div class="contact-item">
+            <span>Recado: (64) 9 9334-7899 (Lúcia)</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Alison Sampaio de Oliveira · <a href="curriculum.pdf" download>Baixar curriculum.pdf</a></p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copiado!</div>
+  <button type="button" class="back-top" id="backTop" aria-label="Voltar ao topo">↑</button>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const SKILLS = {
+        labels: ["Logística", "Operações", "Fiscal", "Liderança", "Orçamento", "Compliance"],
+        values: [95, 92, 90, 88, 85, 82],
+        keys: ["logistica", "operacoes", "fiscal", "lideranca", "orcamento", "compliance"]
+      };
+
+      let charts = {};
+      let activeSkillFilter = "all";
+
+      function getTheme() {
+        return document.documentElement.getAttribute("data-theme") || "light";
+      }
+
+      function chartColors() {
+        const dark = getTheme() === "dark";
+        return {
+          text: dark ? "#94a89e" : "#5a6b63",
+          grid: dark ? "rgba(74, 222, 128, 0.1)" : "rgba(30, 107, 69, 0.1)",
+          accent: dark ? "#4ade80" : "#1e6b45",
+          accent2: dark ? "#38bdf8" : "#0d4a6e",
+          accent3: dark ? "#fbbf24" : "#3d8b5f",
+          fill: dark ? "rgba(74, 222, 128, 0.25)" : "rgba(30, 107, 69, 0.2)"
+        };
+      }
+
+      function filteredData() {
+        if (activeSkillFilter === "all") {
+          return { labels: SKILLS.labels, values: SKILLS.values };
+        }
+        const i = SKILLS.keys.indexOf(activeSkillFilter);
+        if (i < 0) return { labels: SKILLS.labels, values: SKILLS.values };
+        return {
+          labels: [SKILLS.labels[i]],
+          values: [SKILLS.values[i]]
+        };
+      }
+
+      function destroyCharts() {
+        Object.values(charts).forEach(function (c) { if (c) c.destroy(); });
+        charts = {};
+      }
+
+      function buildCharts() {
+        if (typeof Chart === "undefined") return;
+        const c = chartColors();
+        const data = filteredData();
+        const palette = [c.accent, c.accent2, c.accent3, "#a78bfa", "#f472b6", "#fb923c"];
+
+        destroyCharts();
+
+        charts.radar = new Chart(document.getElementById("chartRadar"), {
+          type: "radar",
+          data: {
+            labels: activeSkillFilter === "all" ? SKILLS.labels : data.labels,
+            datasets: [{
+              label: "Competências",
+              data: activeSkillFilter === "all" ? SKILLS.values : SKILLS.values,
+              backgroundColor: c.fill,
+              borderColor: c.accent,
+              borderWidth: 2,
+              pointBackgroundColor: c.accent
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                beginAtZero: true,
+                max: 100,
+                ticks: { display: false, stepSize: 20 },
+                grid: { color: c.grid },
+                angleLines: { color: c.grid },
+                pointLabels: { color: c.text, font: { size: 10 } }
+              }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+
+        charts.doughnut = new Chart(document.getElementById("chartDoughnut"), {
+          type: "doughnut",
+          data: {
+            labels: data.labels,
+            datasets: [{
+              data: data.values,
+              backgroundColor: palette.slice(0, data.values.length),
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "58%",
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: { color: c.text, boxWidth: 12, font: { size: 10 } }
+              }
+            }
+          }
+        });
+
+        charts.bar = new Chart(document.getElementById("chartBar"), {
+          type: "bar",
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: "%",
+              data: data.values,
+              backgroundColor: c.accent,
+              borderRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: { color: c.text },
+                grid: { color: c.grid }
+              },
+              x: { ticks: { color: c.text }, grid: { display: false } }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
+
+      function initTheme() {
+        const saved = localStorage.getItem("cv-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = saved || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        document.getElementById("themeIcon").textContent = theme === "dark" ? "☀️" : "🌙";
+      }
+
+      document.getElementById("themeToggle").addEventListener("click", function () {
+        const next = getTheme() === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("cv-theme", next);
+        document.getElementById("themeIcon").textContent = next === "dark" ? "☀️" : "🌙";
+        buildCharts();
+      });
+
+      initTheme();
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      window.addEventListener("scroll", function () {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        document.documentElement.style.setProperty("--progress", pct + "%");
+
+        document.getElementById("backTop").classList.toggle("visible", scrollTop > 400);
+
+        const sections = ["inicio", "destaques", "competencias", "formacao", "experiencia", "contato"];
+        let current = sections[0];
+        sections.forEach(function (id) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 120) current = id;
+        });
+        document.querySelectorAll(".nav-links a").forEach(function (a) {
+          a.classList.toggle("active", a.getAttribute("data-section") === current);
+        });
+      });
+
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", function () {
+        const open = navLinks.classList.toggle("open");
+        navToggle.classList.toggle("open", open);
+        navToggle.setAttribute("aria-expanded", open);
+      });
+      navLinks.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          navLinks.classList.remove("open");
+          navToggle.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      function animateCounters() {
+        document.querySelectorAll(".stat-value[data-target]").forEach(function (el) {
+          const target = parseInt(el.getAttribute("data-target"), 10);
+          const suffix = el.getAttribute("data-suffix") || "";
+          let start = 0;
+          const duration = 1800;
+          const startTime = performance.now();
+          function tick(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        document.querySelectorAll(".stat-value[data-text]").forEach(function (el) {
+          el.textContent = el.getAttribute("data-text");
+        });
+      }
+
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          if (entry.target.id === "stats") animateCounters();
+          if (entry.target.id === "skillBars") {
+            entry.target.querySelectorAll(".skill-row").forEach(function (row) {
+              row.classList.add("animated");
+            });
+          }
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+      document.querySelectorAll(".reveal, .reveal-stagger, #skillBars").forEach(function (el) {
+        revealObserver.observe(el);
+      });
+
+      document.querySelectorAll(".skill-tag").forEach(function (tag) {
+        tag.addEventListener("click", function () {
+          document.querySelectorAll(".skill-tag").forEach(function (t) { t.classList.remove("active"); });
+          tag.classList.add("active");
+          activeSkillFilter = tag.getAttribute("data-skill");
+          document.querySelectorAll(".skill-row").forEach(function (row) {
+            const skill = row.getAttribute("data-skill");
+            row.style.opacity = activeSkillFilter === "all" || activeSkillFilter === skill ? "1" : "0.35";
+          });
+          buildCharts();
+        });
+      });
+
+      document.querySelectorAll(".timeline-item .timeline-header").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const item = btn.closest(".timeline-item");
+          const isOpen = item.classList.contains("open");
+          item.classList.toggle("open", !isOpen);
+          btn.setAttribute("aria-expanded", !isOpen);
+        });
+      });
+
+      document.querySelectorAll(".exp-tab").forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          document.querySelectorAll(".exp-tab").forEach(function (t) { t.classList.remove("active"); });
+          tab.classList.add("active");
+          const filter = tab.getAttribute("data-filter");
+          document.querySelectorAll(".timeline-item").forEach(function (item) {
+            const company = item.getAttribute("data-company");
+            const show = filter === "all" || company === filter;
+            item.classList.toggle("hidden", !show);
+          });
+        });
+      });
+
+      document.querySelectorAll(".copy-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const text = btn.getAttribute("data-copy");
+          navigator.clipboard.writeText(text).then(showToast).catch(function () {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            showToast();
+          });
+        });
+      });
+
+      function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 2200);
+      }
+
+      document.getElementById("backTop").addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      document.querySelectorAll("[data-tilt]").forEach(function (card) {
+        card.addEventListener("mousemove", function (e) {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = "translateY(-6px) rotateX(" + (-y * 8) + "deg) rotateY(" + (x * 8) + "deg)";
+        });
+        card.addEventListener("mouseleave", function () {
+          card.style.transform = "";
+        });
+      });
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", buildCharts);
+      } else {
+        buildCharts();
+      }
+    })();
+  </script>
+</body>
+</html>

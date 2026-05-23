@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo — Alison Sampaio de Oliveira</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #4a4a4a;
+      --accent: #1e5a3a;
+      --line: #d8d8d8;
+      --bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--ink);
+      background: #f0f0f0;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 14mm 16mm;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .header-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-top: 10px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .contact a { color: var(--accent); text-decoration: none; }
+
+    section { margin-bottom: 14px; }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .objective {
+      font-size: 10pt;
+      color: var(--ink);
+    }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+    }
+
+    .edu-item .period { color: var(--muted); font-size: 9.5pt; white-space: nowrap; }
+
+    .job {
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+    }
+
+    .job:last-child { margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px 12px;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+    }
+
+    .job-period {
+      font-size: 9.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .company {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 10pt;
+    }
+
+    .job-meta {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    ul {
+      margin-left: 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 3px;
+      font-size: 10pt;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; padding: 10mm 12mm; max-width: none; }
+      @page { margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <img class="header-photo" src="Alison.jpg" alt="Alison Sampaio de Oliveira">
+      <div>
+      <h1>Alison Sampaio de Oliveira</h1>
+      <p class="subtitle">Brasileiro, casado, 45 anos</p>
+      <div class="contact">
+        <span>Rua BV 05, Qd. 17, Lt. 17 — Bela Vista — Rio Verde/GO — CEP 75.910-838</span>
+        <span><a href="mailto:alisonsampaio70@gmail.com">alisonsampaio70@gmail.com</a></span>
+        <span>Cel.: (64) 9 9918-0408</span>
+        <span>Recado: (64) 9 9334-7899 (Lúcia)</span>
+      </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Objetivo</h2>
+      <p class="objective">Logística — Operacional — Controladoria</p>
+    </section>
+
+    <section>
+      <h2>Formação acadêmica</h2>
+      <div class="edu-item">
+        <div>
+          <strong>Graduação em Administração de Empresas</strong><br>
+          UNAERP — Universidade de Ribeirão Preto, Campus Guarujá/SP
+        </div>
+        <span class="period">Concluído em 06/2005</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experiência profissional</h2>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Coordenador Logístico e Operações</span>
+          <span class="job-period">Desde 04/2020</span>
+        </div>
+        <p class="company">Grupo Lavoro — Integra / Produtec Comércio e Representações</p>
+        <p class="job-meta">Revenda de insumos agrícolas — defensivos, fertilizantes, sementes de soja e milho · Unidade Rio Verde/GO</p>
+        <ul>
+          <li>Planejamento das entregas (semente de soja e milho, fertilizantes e defensivos químicos) das lojas Integra do Sudoeste Goiano (Jataí, Rio Verde, Paraúna, Santa Helena, Goiatuba e Caiapônia) até as propriedades rurais.</li>
+          <li>Planejamento orçamentário dos fretes.</li>
+          <li>Controle de estoque e integrante da equipe do comitê de inventário.</li>
+          <li>Liderança das equipes de faturamento, logística e operacional (~10 colaboradores).</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Supervisor Administrativo — Segurança Patrimonial e Compliance</span>
+          <span class="job-period">07/2015 — 07/2018</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Regional Rio Verde/GO — Fábrica, armazéns e transbordos</p>
+        <ul>
+          <li>Integrante da equipe Brasil de auditores internos e externos dos processos administrativos e operacionais, com atuação em regiões portuárias (Guarujá, Santos, Paranaguá, Porto Velho, Santarém), fábricas (Uberlândia, Ponta Grossa, Mairinque, Rio Verde) e armazéns/transbordos em GO, MG e SP.</li>
+          <li>Garantia de aderência dos departamentos aos processos de compliance conforme política da empresa.</li>
+          <li>Responsável pelas equipes de monitoramento CFTV, portaria, vigilância patrimonial e auditores (~20 colaboradores diretos e indiretos em 1 fábrica, 8 armazéns e 10 transbordos).</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Supervisor Administrativo — Controladoria, Logística e Operacional</span>
+          <span class="job-period">08/2014 — 06/2015</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Unidade Montividiu/GO — Armazém</p>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Encarregado Fiscal — Controladoria</span>
+          <span class="job-period">02/2013 — 07/2014</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Regional Rio Verde/GO — Fábrica, armazéns e transbordos</p>
+        <ul>
+          <li>Planejamento fiscal das operações da fábrica de Rio Verde/GO (farelo de soja, óleos Liza e Veleiro, óleo degomado, exportação de soja via Santos ou Paranaguá, compra de soja no sudoeste goiano).</li>
+          <li>Liderança da equipe fiscal (~8 colaboradores).</li>
+          <li>Fechamento dos livros fiscais (ISS, ICMS, tributos federais, estaduais GO e municipais) para fábrica, armazéns e transbordos.</li>
+          <li>Atendimento a fiscalizações municipais, estaduais, federais e certificações da regional.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Encarregado Fiscal — Controladoria</span>
+          <span class="job-period">02/2010 — 01/2013</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Unidade Guarujá/SP — Porto marítimo</p>
+        <ul>
+          <li>Planejamento fiscal do terminal marítimo (exportações de soja, farelo, milho e açúcar a granel).</li>
+          <li>Liderança da equipe fiscal (~6 colaboradores).</li>
+          <li>Fechamento fiscal (ISS, ICMS, tributos federais, estaduais SP e municipais).</li>
+          <li>Atendimento a fiscalizações e certificações; integrante da equipe Brasil de auditores internos e externos.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Assistente Administrativo — Controladoria</span>
+          <span class="job-period">08/2007 — 01/2010</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Unidade Guarujá/SP — Terminal marítimo</p>
+        <ul>
+          <li>Faturamento e apoio ao fechamento de livros fiscais e apuração de tributos.</li>
+          <li>Apoio em fiscalizações (municipal, estadual SP, federal, Alfândega Santos, Codesp).</li>
+          <li>Auditor interno das certificações ISO 9001, ISO 14001 e ISO 22000.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Assistente Administrativo — Controladoria</span>
+          <span class="job-period">05/2003 — 07/2007</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Unidade Santos/SP — Terminal marítimo Teag T33</p>
+        <ul>
+          <li>Controle de estoque e faturamento; apoio a contas a pagar, fiscal e contábil.</li>
+          <li>Apoio em fiscalizações e certificações do terminal marítimo de Santos/SP.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Estagiário — Escrita Fiscal</span>
+          <span class="job-period">08/2002 — 04/2003</span>
+        </div>
+        <p class="company">Grupo Cargill Agrícola S.A.</p>
+        <p class="job-meta">Unidade Guarujá/SP — Terminal marítimo · Departamento de Controladoria</p>
+      </article>
+
+      <p class="job-meta" style="margin-top:8px;"><em>Experiência total na Cargill: 08/2002 a 07/2018 (16 anos).</em></p>
+    </section>
+
+  </main>
+</body>
+</html>
