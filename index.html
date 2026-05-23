@@ -1071,7 +1071,7 @@
             <div class="chart-wrap"><canvas id="chartBar" role="img" aria-label="Gráfico comparativo de competências"></canvas></div>
           </div>
           <div class="chart-card chart-card-wide">
-            <h3>Trajetória profissional (anos)</h3>
+            <h3>Trajetória profissional (cronológica)</h3>
             <div class="chart-wrap chart-wrap-tall"><canvas id="chartCareer" role="img" aria-label="Gráfico de anos de experiência por empresa"></canvas></div>
           </div>
         </div>
@@ -1309,11 +1309,20 @@
         compliance: "Auditor interno/externo, ISO 9001/14001/22000, CFTV e políticas corporativas."
       };
 
-      const CAREER = {
-        labels: ["Cargill (2002–2018)", "Lavoro/Integra (desde 2020)", "Formação & estágio"],
-        years: [16, 6, 1],
-        keys: ["cargill", "lavoro", "formacao"]
-      };
+      const CAREER_PHASES = [
+        { label: "Estágio & formação (2002–2005)", years: 3, key: "formacao", order: 1 },
+        { label: "Cargill (2002–2018)", years: 16, key: "cargill", order: 2 },
+        { label: "Lavoro/Integra (2020–atual)", years: 6, key: "lavoro", order: 3 }
+      ];
+
+      function getCareerData() {
+        const sorted = CAREER_PHASES.slice().sort(function (a, b) { return b.order - a.order; });
+        return {
+          labels: sorted.map(function (p) { return p.label; }),
+          years: sorted.map(function (p) { return p.years; }),
+          keys: sorted.map(function (p) { return p.key; })
+        };
+      }
 
       let charts = {};
       let activeSkillFilter = "all";
@@ -1590,14 +1599,16 @@
           })
         });
 
+        const career = getCareerData();
+
         charts.career = new Chart(document.getElementById("chartCareer"), {
           type: "bar",
           data: {
-            labels: CAREER.labels,
+            labels: career.labels,
             datasets: [{
               label: "Anos",
-              data: CAREER.years,
-              backgroundColor: [c.accent2, c.accent, c.accent3],
+              data: career.years,
+              backgroundColor: [c.accent, c.accent2, c.accent3],
               borderRadius: 8,
               borderSkipped: false
             }]
@@ -1612,7 +1623,7 @@
             },
             onClick: function (_evt, elements) {
               if (!elements.length) return;
-              const key = CAREER.keys[elements[0].index];
+              const key = getCareerData().keys[elements[0].index];
               if (key === "formacao") {
                 document.getElementById("formacao").scrollIntoView({ behavior: "smooth", block: "start" });
                 return;
