@@ -456,6 +456,20 @@
       grid-template-columns: 140px 1fr 48px;
       align-items: center;
       gap: 1rem;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.5rem;
+      margin: -0.35rem -0.5rem;
+      transition: opacity 0.3s, background var(--transition), transform 0.2s;
+    }
+
+    .skill-row:hover,
+    .skill-row.chart-linked {
+      background: var(--border);
+    }
+
+    .skill-row.chart-linked .skill-fill {
+      box-shadow: 0 0 12px var(--accent-glow);
     }
 
     .skill-row label {
@@ -487,11 +501,76 @@
       text-align: right;
     }
 
+    .charts-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .chart-hint {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .chart-type-toggle {
+      display: flex;
+      gap: 0.35rem;
+      padding: 0.25rem;
+      background: var(--border);
+      border-radius: 999px;
+    }
+
+    .chart-type-btn {
+      padding: 0.4rem 0.9rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .chart-type-btn.active {
+      background: var(--bg-elevated);
+      color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .chart-insight {
+      width: 100%;
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--border), transparent);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent);
+      min-height: 3.25rem;
+      transition: opacity 0.25s;
+    }
+
+    .chart-insight strong { color: var(--accent); }
+
     .charts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      margin-top: 2rem;
+      margin-top: 1.25rem;
     }
 
     .chart-card {
@@ -500,6 +579,12 @@
       border-radius: var(--radius);
       padding: 1.25rem;
       box-shadow: var(--shadow);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .chart-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
     }
 
     .chart-card h3 {
@@ -509,7 +594,10 @@
       text-align: center;
     }
 
+    .chart-card-wide { grid-column: 1 / -1; }
+
     .chart-wrap { position: relative; height: 220px; }
+    .chart-wrap-tall { height: 160px; }
 
     .edu-card {
       background: var(--bg-elevated);
@@ -777,6 +865,9 @@
     @media (max-width: 900px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .charts-grid { grid-template-columns: 1fr; }
+      .chart-card-wide { grid-column: 1; }
+      .charts-toolbar { flex-direction: column; align-items: stretch; }
+      .chart-type-toggle { align-self: flex-start; }
       .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       .hero-cta { justify-content: center; }
       .skill-row { grid-template-columns: 1fr; gap: 0.35rem; }
@@ -914,7 +1005,7 @@
 
       <section id="competencias" aria-labelledby="competencias-title">
         <h2 class="section-title reveal" id="competencias-title">Competências</h2>
-        <p class="section-sub reveal">Clique nas tags para destacar uma competência nos gráficos.</p>
+        <p class="section-sub reveal">Interaja com as barras, tags ou gráficos — clique para filtrar, passe o mouse para detalhes.</p>
         <div class="skills-tags reveal" id="skillTags" role="tablist" aria-label="Filtrar competências">
           <button type="button" class="skill-tag active" data-skill="all">Todas</button>
           <button type="button" class="skill-tag" data-skill="logistica">Logística</button>
@@ -956,18 +1047,32 @@
             <span class="skill-pct">82%</span>
           </div>
         </div>
+        <div class="charts-toolbar reveal">
+          <p class="chart-hint">Gráficos interativos: clique em um setor ou barra para filtrar · passe o mouse para ver o detalhe</p>
+          <div class="chart-type-toggle" role="group" aria-label="Tipo do gráfico comparativo">
+            <button type="button" class="chart-type-btn active" data-chart-type="bar">Barras</button>
+            <button type="button" class="chart-type-btn" data-chart-type="line">Linha</button>
+          </div>
+          <div class="chart-insight" id="chartInsight" aria-live="polite">
+            <strong>Visão geral</strong> — Passe o mouse ou clique em qualquer competência para explorar o perfil profissional.
+          </div>
+        </div>
         <div class="charts-grid reveal">
           <div class="chart-card">
             <h3>Perfil radar</h3>
-            <div class="chart-wrap"><canvas id="chartRadar" aria-label="Gráfico radar de competências"></canvas></div>
+            <div class="chart-wrap"><canvas id="chartRadar" role="img" aria-label="Gráfico radar de competências"></canvas></div>
           </div>
           <div class="chart-card">
             <h3>Distribuição</h3>
-            <div class="chart-wrap"><canvas id="chartDoughnut" aria-label="Gráfico de rosca"></canvas></div>
+            <div class="chart-wrap"><canvas id="chartDoughnut" role="img" aria-label="Gráfico de rosca de competências"></canvas></div>
           </div>
           <div class="chart-card">
             <h3>Comparativo</h3>
-            <div class="chart-wrap"><canvas id="chartBar" aria-label="Gráfico de barras"></canvas></div>
+            <div class="chart-wrap"><canvas id="chartBar" role="img" aria-label="Gráfico comparativo de competências"></canvas></div>
+          </div>
+          <div class="chart-card chart-card-wide">
+            <h3>Trajetória profissional (anos)</h3>
+            <div class="chart-wrap chart-wrap-tall"><canvas id="chartCareer" role="img" aria-label="Gráfico de anos de experiência por empresa"></canvas></div>
           </div>
         </div>
       </section>
@@ -1194,8 +1299,26 @@
         keys: ["logistica", "operacoes", "fiscal", "lideranca", "orcamento", "compliance"]
       };
 
+      const SKILL_HINTS = {
+        all: "Visão geral do perfil — clique em uma competência para filtrar todos os gráficos.",
+        logistica: "Planejamento de entregas, fretes e estoque nas unidades Integra do Sudoeste Goiano.",
+        operacoes: "Liderança de faturamento, logística e operacional; comitê de inventário e processos.",
+        fiscal: "16 anos na Cargill: fechamento fiscal, ICMS, ISS, tributos federais e fiscalizações.",
+        lideranca: "Equipes de até ~20 colaboradores (Cargill) e ~10 na Lavoro/Integra.",
+        orcamento: "Planejamento orçamentário de fretes e controle de custos logísticos.",
+        compliance: "Auditor interno/externo, ISO 9001/14001/22000, CFTV e políticas corporativas."
+      };
+
+      const CAREER = {
+        labels: ["Cargill (2002–2018)", "Lavoro/Integra (desde 2020)", "Formação & estágio"],
+        years: [16, 6, 1],
+        keys: ["cargill", "lavoro", "formacao"]
+      };
+
       let charts = {};
       let activeSkillFilter = "all";
+      let barChartType = "bar";
+      let hoverChartIndex = -1;
 
       function getTheme() {
         return document.documentElement.getAttribute("data-theme") || "light";
@@ -1209,8 +1332,15 @@
           accent: dark ? "#4ade80" : "#1e6b45",
           accent2: dark ? "#38bdf8" : "#0d4a6e",
           accent3: dark ? "#fbbf24" : "#3d8b5f",
-          fill: dark ? "rgba(74, 222, 128, 0.25)" : "rgba(30, 107, 69, 0.2)"
+          fill: dark ? "rgba(74, 222, 128, 0.25)" : "rgba(30, 107, 69, 0.2)",
+          tooltipBg: dark ? "#1a221e" : "#ffffff",
+          tooltipBorder: dark ? "rgba(74, 222, 128, 0.3)" : "rgba(30, 107, 69, 0.2)",
+          muted: dark ? "rgba(148, 168, 158, 0.35)" : "rgba(90, 107, 99, 0.35)"
         };
+      }
+
+      function palette(c) {
+        return [c.accent, c.accent2, c.accent3, "#a78bfa", "#f472b6", "#fb923c"];
       }
 
       function filteredData() {
@@ -1225,47 +1355,176 @@
         };
       }
 
+      function skillIndexFromKey(key) {
+        if (key === "all") return -1;
+        return SKILLS.keys.indexOf(key);
+      }
+
+      function updateChartInsight(key, value) {
+        const el = document.getElementById("chartInsight");
+        if (!el) return;
+        const label = key === "all" ? "Visão geral" : SKILLS.labels[SKILLS.keys.indexOf(key)] || key;
+        const pct = value != null ? " — <strong>" + value + "%</strong> de domínio autodeclarado" : "";
+        el.innerHTML = "<strong>" + label + "</strong>" + pct + " — " + (SKILL_HINTS[key] || SKILL_HINTS.all);
+      }
+
+      function setSkillFilter(key, options) {
+        const opts = options || {};
+        activeSkillFilter = key;
+        document.querySelectorAll(".skill-tag").forEach(function (t) {
+          t.classList.toggle("active", t.getAttribute("data-skill") === key);
+        });
+        document.querySelectorAll(".skill-row").forEach(function (row) {
+          const skill = row.getAttribute("data-skill");
+          const match = key === "all" || key === skill;
+          row.style.opacity = key === "all" || match ? "1" : "0.35";
+          row.classList.toggle("chart-linked", !opts.skipRowHighlight && skill === key && key !== "all");
+        });
+        const idx = skillIndexFromKey(key);
+        const value = idx >= 0 ? SKILLS.values[idx] : null;
+        updateChartInsight(key, value);
+        if (!opts.skipChartRebuild) refreshCharts();
+      }
+
+      function chartClickHandler(_evt, elements) {
+        if (!elements.length) {
+          if (activeSkillFilter !== "all") setSkillFilter("all");
+          return;
+        }
+        const index = elements[0].index;
+        const key = SKILLS.keys[index];
+        setSkillFilter(activeSkillFilter === key ? "all" : key);
+      }
+
+      function sharedChartOptions(c) {
+        return {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 650, easing: "easeOutQuart" },
+          interaction: { mode: "nearest", intersect: true },
+          onHover: function (_evt, elements) {
+            const canvas = this.canvas;
+            if (canvas) canvas.style.cursor = elements.length ? "pointer" : "default";
+          },
+          onClick: chartClickHandler,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: c.tooltipBg,
+              titleColor: c.text,
+              bodyColor: c.text,
+              borderColor: c.tooltipBorder,
+              borderWidth: 1,
+              padding: 12,
+              cornerRadius: 8,
+              displayColors: true,
+              callbacks: {
+                label: function (ctx) {
+                  const v = ctx.parsed.r != null ? ctx.parsed.r : (ctx.parsed.y != null ? ctx.parsed.y : ctx.parsed);
+                  return " " + (typeof v === "number" ? v + "%" : v);
+                },
+                afterLabel: function () {
+                  return "Clique para filtrar";
+                }
+              }
+            }
+          }
+        };
+      }
+
+      function radarPointColors(c, count) {
+        const pal = palette(c);
+        const focus = skillIndexFromKey(activeSkillFilter);
+        return Array.from({ length: count }, function (_, i) {
+          if (focus < 0) return pal[i % pal.length];
+          return i === focus ? c.accent : c.muted;
+        });
+      }
+
       function destroyCharts() {
-        Object.values(charts).forEach(function (c) { if (c) c.destroy(); });
+        Object.values(charts).forEach(function (chart) { if (chart) chart.destroy(); });
         charts = {};
+      }
+
+      function highlightCharts(index) {
+        hoverChartIndex = index;
+        ["radar", "doughnut", "bar"].forEach(function (name) {
+          const chart = charts[name];
+          if (!chart || index < 0) return;
+          chart.setActiveElements([{ datasetIndex: 0, index: index }]);
+          chart.tooltip.setActiveElements([{ datasetIndex: 0, index: index }], { x: 0, y: 0 });
+          chart.update("none");
+        });
+        if (index >= 0) {
+          updateChartInsight(SKILLS.keys[index], SKILLS.values[index]);
+          document.querySelectorAll(".skill-row").forEach(function (row, i) {
+            row.classList.toggle("chart-linked", i === index);
+          });
+        }
+      }
+
+      function clearChartHighlight() {
+        if (hoverChartIndex < 0) return;
+        hoverChartIndex = -1;
+        ["radar", "doughnut", "bar"].forEach(function (name) {
+          const chart = charts[name];
+          if (!chart) return;
+          chart.setActiveElements([]);
+          chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+          chart.update("none");
+        });
+        document.querySelectorAll(".skill-row").forEach(function (row) {
+          row.classList.toggle("chart-linked", row.getAttribute("data-skill") === activeSkillFilter && activeSkillFilter !== "all");
+        });
+        const idx = skillIndexFromKey(activeSkillFilter);
+        updateChartInsight(activeSkillFilter, idx >= 0 ? SKILLS.values[idx] : null);
       }
 
       function buildCharts() {
         if (typeof Chart === "undefined") return;
         const c = chartColors();
         const data = filteredData();
-        const palette = [c.accent, c.accent2, c.accent3, "#a78bfa", "#f472b6", "#fb923c"];
+        const pal = palette(c);
+        const focusIdx = skillIndexFromKey(activeSkillFilter);
+        const showAllRadar = activeSkillFilter === "all";
 
         destroyCharts();
+
+        const radarOpts = sharedChartOptions(c);
+        radarOpts.scales = {
+          r: {
+            beginAtZero: true,
+            max: 100,
+            ticks: { display: false, stepSize: 20 },
+            grid: { color: c.grid },
+            angleLines: { color: c.grid },
+            pointLabels: { color: c.text, font: { size: 10 } }
+          }
+        };
+        radarOpts.plugins.legend = { display: false };
 
         charts.radar = new Chart(document.getElementById("chartRadar"), {
           type: "radar",
           data: {
-            labels: activeSkillFilter === "all" ? SKILLS.labels : data.labels,
+            labels: SKILLS.labels,
             datasets: [{
               label: "Competências",
-              data: activeSkillFilter === "all" ? SKILLS.values : SKILLS.values,
-              backgroundColor: c.fill,
+              data: SKILLS.values,
+              backgroundColor: showAllRadar ? c.fill : "transparent",
               borderColor: c.accent,
-              borderWidth: 2,
-              pointBackgroundColor: c.accent
+              borderWidth: focusIdx >= 0 ? 3 : 2,
+              pointBackgroundColor: radarPointColors(c, SKILLS.values.length),
+              pointRadius: SKILLS.values.map(function (_, i) { return focusIdx < 0 || i === focusIdx ? 5 : 3; }),
+              pointHoverRadius: 7
             }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                beginAtZero: true,
-                max: 100,
-                ticks: { display: false, stepSize: 20 },
-                grid: { color: c.grid },
-                angleLines: { color: c.grid },
-                pointLabels: { color: c.text, font: { size: 10 } }
-              }
-            },
-            plugins: { legend: { display: false } }
-          }
+          options: radarOpts
+        });
+
+        const sliceColors = data.values.map(function (_, i) {
+          const globalIdx = SKILLS.labels.indexOf(data.labels[i]);
+          if (focusIdx < 0) return pal[globalIdx % pal.length];
+          return globalIdx === focusIdx ? c.accent : c.muted;
         });
 
         charts.doughnut = new Chart(document.getElementById("chartDoughnut"), {
@@ -1274,37 +1533,51 @@
             labels: data.labels,
             datasets: [{
               data: data.values,
-              backgroundColor: palette.slice(0, data.values.length),
-              borderWidth: 0
+              backgroundColor: sliceColors,
+              borderWidth: 2,
+              borderColor: c.tooltipBg,
+              hoverOffset: 12
             }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
+          options: Object.assign({}, sharedChartOptions(c), {
             cutout: "58%",
             plugins: {
               legend: {
+                display: data.labels.length > 1,
                 position: "bottom",
                 labels: { color: c.text, boxWidth: 12, font: { size: 10 } }
-              }
+              },
+              tooltip: sharedChartOptions(c).plugins.tooltip
             }
-          }
+          })
         });
 
+        const barColors = data.values.map(function (_, i) {
+          const globalIdx = SKILLS.labels.indexOf(data.labels[i]);
+          if (focusIdx < 0) return c.accent;
+          return globalIdx === focusIdx ? c.accent : c.muted;
+        });
+
+        const isLine = barChartType === "line";
         charts.bar = new Chart(document.getElementById("chartBar"), {
-          type: "bar",
+          type: isLine ? "line" : "bar",
           data: {
             labels: data.labels,
             datasets: [{
               label: "%",
               data: data.values,
-              backgroundColor: c.accent,
-              borderRadius: 6
+              backgroundColor: isLine ? c.fill : barColors,
+              borderColor: c.accent,
+              borderWidth: isLine ? 3 : 0,
+              fill: isLine,
+              tension: 0.35,
+              pointRadius: isLine ? 6 : 0,
+              pointHoverRadius: 8,
+              pointBackgroundColor: c.accent,
+              borderRadius: isLine ? 0 : 6
             }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
+          options: Object.assign({}, sharedChartOptions(c), {
             scales: {
               y: {
                 beginAtZero: true,
@@ -1313,10 +1586,81 @@
                 grid: { color: c.grid }
               },
               x: { ticks: { color: c.text }, grid: { display: false } }
+            }
+          })
+        });
+
+        charts.career = new Chart(document.getElementById("chartCareer"), {
+          type: "bar",
+          data: {
+            labels: CAREER.labels,
+            datasets: [{
+              label: "Anos",
+              data: CAREER.years,
+              backgroundColor: [c.accent2, c.accent, c.accent3],
+              borderRadius: 8,
+              borderSkipped: false
+            }]
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: { duration: 800, easing: "easeOutQuart" },
+            onHover: function (_evt, elements) {
+              this.canvas.style.cursor = elements.length ? "pointer" : "default";
             },
-            plugins: { legend: { display: false } }
+            onClick: function (_evt, elements) {
+              if (!elements.length) return;
+              const key = CAREER.keys[elements[0].index];
+              if (key === "formacao") {
+                document.getElementById("formacao").scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+              }
+              document.querySelectorAll(".exp-tab").forEach(function (tab) {
+                tab.classList.toggle("active", tab.getAttribute("data-filter") === key);
+              });
+              document.querySelectorAll(".timeline-item").forEach(function (item) {
+                item.classList.toggle("hidden", item.getAttribute("data-company") !== key);
+              });
+              document.getElementById("experiencia").scrollIntoView({ behavior: "smooth", block: "start" });
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: c.tooltipBg,
+                titleColor: c.text,
+                bodyColor: c.text,
+                borderColor: c.tooltipBorder,
+                borderWidth: 1,
+                callbacks: {
+                  label: function (ctx) {
+                    return " " + ctx.parsed.x + " ano(s)";
+                  },
+                  afterLabel: function () {
+                    return "Clique para ir à seção";
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                ticks: { color: c.text, stepSize: 4 },
+                grid: { color: c.grid }
+              },
+              y: { ticks: { color: c.text }, grid: { display: false } }
+            }
           }
         });
+      }
+
+      function refreshCharts() {
+        if (!charts.radar) {
+          buildCharts();
+          return;
+        }
+        buildCharts();
       }
 
       function initTheme() {
@@ -1332,7 +1676,16 @@
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("cv-theme", next);
         document.getElementById("themeIcon").textContent = next === "dark" ? "☀️" : "🌙";
-        buildCharts();
+        refreshCharts();
+      });
+
+      document.querySelectorAll(".chart-type-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".chart-type-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          barChartType = btn.getAttribute("data-chart-type");
+          refreshCharts();
+        });
       });
 
       initTheme();
@@ -1412,14 +1765,20 @@
 
       document.querySelectorAll(".skill-tag").forEach(function (tag) {
         tag.addEventListener("click", function () {
-          document.querySelectorAll(".skill-tag").forEach(function (t) { t.classList.remove("active"); });
-          tag.classList.add("active");
-          activeSkillFilter = tag.getAttribute("data-skill");
-          document.querySelectorAll(".skill-row").forEach(function (row) {
-            const skill = row.getAttribute("data-skill");
-            row.style.opacity = activeSkillFilter === "all" || activeSkillFilter === skill ? "1" : "0.35";
-          });
-          buildCharts();
+          setSkillFilter(tag.getAttribute("data-skill"));
+        });
+      });
+
+      document.querySelectorAll(".skill-row").forEach(function (row, index) {
+        row.addEventListener("click", function () {
+          const key = row.getAttribute("data-skill");
+          setSkillFilter(activeSkillFilter === key ? "all" : key);
+        });
+        row.addEventListener("mouseenter", function () {
+          highlightCharts(index);
+        });
+        row.addEventListener("mouseleave", function () {
+          clearChartHighlight();
         });
       });
 
