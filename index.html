@@ -20,7 +20,7 @@
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --accent: #1e6b45;
       --accent-light: #2d9a66;
-      --accent-glow: rgba(30, 107, 69, 0.35);
+      --accent-glow: rgba(40, 162, 101, 0.359);
       --gradient-1: #1e6b45;
       --gradient-2: #0d4a6e;
       --gradient-3: #3d8b5f;
@@ -29,7 +29,7 @@
       --text: #1a2420;
       --text-muted: #5a6b63;
       --border: rgba(30, 107, 69, 0.12);
-      --glass: rgba(255, 255, 255, 0.72);
+      --glass: rgba(255, 255, 255, 0.719);
       --glass-border: rgba(255, 255, 255, 0.5);
       --nav-height: 72px;
       --progress: 0%;
@@ -739,7 +739,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
     }
 
@@ -747,6 +747,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 1rem;
       padding: 1rem 1.25rem;
       background: var(--bg-elevated);
@@ -754,22 +755,68 @@
       border-radius: var(--radius-sm);
     }
 
-    .contact-item span { font-size: 0.9rem; color: var(--text-muted); word-break: break-all; }
+    .contact-primary {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
 
-    .copy-btn {
+    .contact-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .contact-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+      transition: color var(--transition);
+    }
+
+    .contact-link:hover { text-decoration: underline; }
+
+    .contact-actions {
+      display: flex;
+      flex-shrink: 0;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .copy-btn,
+    .contact-btn {
       flex-shrink: 0;
       padding: 0.4rem 0.75rem;
       font-size: 0.8rem;
       font-weight: 600;
+      font-family: inherit;
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--bg);
       color: var(--accent);
       cursor: pointer;
-      transition: background var(--transition);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition);
     }
 
-    .copy-btn:hover { background: var(--border); }
+    .copy-btn:hover,
+    .contact-btn:hover { background: var(--border); }
+
+    .contact-btn-whatsapp:hover {
+      background: rgba(37, 211, 102, 0.15);
+      border-color: rgba(37, 211, 102, 0.4);
+      color: #128c7e;
+    }
+
+    [data-theme="dark"] .contact-btn-whatsapp:hover {
+      color: #25d366;
+    }
 
     .toast {
       position: fixed;
@@ -1267,15 +1314,28 @@
         <p class="section-sub reveal">Rua BV 05, Qd. 17, Lt. 17 — Bela Vista — Rio Verde/GO — CEP 75.910-838</p>
         <div class="contact-grid reveal">
           <div class="contact-item">
-            <span id="emailText">alisonsampaio70@gmail.com</span>
-            <button type="button" class="copy-btn" data-copy="alisonsampaio70@gmail.com" aria-label="Copiar e-mail">Copiar</button>
+            <a class="contact-link" id="emailText" href="mailto:alisonsampaio70@gmail.com?subject=Contato%20via%20curr%C3%ADculo">alisonsampaio70@gmail.com</a>
+            <div class="contact-actions">
+              <button type="button" class="copy-btn" data-copy="alisonsampaio70@gmail.com" aria-label="Copiar e-mail">Copiar</button>
+              <a class="contact-btn" href="mailto:alisonsampaio70@gmail.com?subject=Contato%20via%20curr%C3%ADculo" aria-label="Enviar e-mail para Alison">E-mail</a>
+            </div>
           </div>
           <div class="contact-item">
-            <span id="phoneText">(64) 9 9918-0408</span>
-            <button type="button" class="copy-btn" data-copy="(64) 9 9918-0408" aria-label="Copiar celular">Copiar</button>
+            <a class="contact-link" id="phoneText" href="https://wa.me/5564999180408" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp de Alison">(64) 9 9918-0408</a>
+            <div class="contact-actions">
+              <button type="button" class="copy-btn" data-copy="(64) 9 9918-0408" aria-label="Copiar celular de Alison">Copiar</button>
+              <a class="contact-btn contact-btn-whatsapp" href="https://wa.me/5564999180408?text=Ol%C3%A1%20Alison%2C%20vi%20seu%20curr%C3%ADculo%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" aria-label="Conversar com Alison no WhatsApp">WhatsApp</a>
+            </div>
           </div>
           <div class="contact-item">
-            <span>Recado: (64) 9 9334-7899 (Lúcia)</span>
+            <div class="contact-primary">
+              <span class="contact-label">Recado (Lúcia)</span>
+              <a class="contact-link" href="https://wa.me/5564993347899" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp de Lúcia">(64) 9 9334-7899</a>
+            </div>
+            <div class="contact-actions">
+              <button type="button" class="copy-btn" data-copy="(64) 9 9334-7899" aria-label="Copiar celular de Lúcia">Copiar</button>
+              <a class="contact-btn contact-btn-whatsapp" href="https://wa.me/5564993347899?text=Ol%C3%A1%2C%20gostaria%20de%20deixar%20um%20recado%20para%20Alison." target="_blank" rel="noopener noreferrer" aria-label="Conversar com Lúcia no WhatsApp">WhatsApp</a>
+            </div>
           </div>
         </div>
       </section>
