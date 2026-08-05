@@ -23,6 +23,7 @@ def norm(s: str) -> str:
     s = s or ""
     # Source CSV contains U+FFFD where çã/ã/é were lost
     s = s.replace("Nutri\ufffd\ufffdo", "Nutricao").replace("nutri\ufffd\ufffdo", "nutricao")
+    s = s.replace("Milh\ufffdo", "Milhao").replace("milh\ufffdo", "milhao")
     s = s.replace("Pecu\ufffdria", "Pecuaria").replace("Ra\ufffd\ufffdes", "Racoes")
     s = s.replace("\ufffd", "")
     s = unicodedata.normalize("NFKD", s)
@@ -31,6 +32,8 @@ def norm(s: str) -> str:
     s = s.replace("ç", "c").replace("ñ", "n")
     s = re.sub(r"[^a-z0-9]+", " ", s)
     s = s.replace("nutri o ", "nutricao ").replace("pecu ria", "pecuaria")
+    # collapsed forms after lost ã
+    s = re.sub(r"\bmilho ingredients\b", "milhao ingredients", s)
     return re.sub(r"\s+", " ", s).strip()
 
 
@@ -129,8 +132,14 @@ def fix_display_name(s: str) -> str:
     replacements = [
         ("Nutri\ufffd\ufffdo", "Nutrição"),
         ("nutri\ufffd\ufffdo", "nutrição"),
+        ("Milh\ufffdo", "Milhão"),
+        ("milh\ufffdo", "milhão"),
         ("Ra\ufffd\ufffdes", "Rações"),
         ("ra\ufffd\ufffdes", "rações"),
+        ("Com\ufffdrcio", "Comércio"),
+        ("Exporta\ufffd\ufffdo", "Exportação"),
+        ("Agroneg\ufffdcios", "Agronegócios"),
+        ("Agrolog\ufffdstica", "Agrologística"),
         ("S\ufffdo", "São"),
         ("s\ufffdo", "são"),
         ("S\ufffd", "Sá"),
