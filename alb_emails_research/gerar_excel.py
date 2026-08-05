@@ -100,7 +100,7 @@ def find_curated(empresa: str, curated: dict) -> dict | None:
                 candidates.append((70, cv, ck))
     if not candidates:
         return None
-    candidates.sort(reverse=True)
+    candidates.sort(key=lambda x: x[0], reverse=True)
     return candidates[0][1]
 
 
