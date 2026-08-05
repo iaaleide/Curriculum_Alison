@@ -1,0 +1,422 @@
+{
+  "sopec nutrição animal": {
+    "email_principal": "crediariosopec@hotmail.com",
+    "emails_encontrados": [
+      "crediariosopec@hotmail.com"
+    ],
+    "fonte": "Site oficial sopec.com.br",
+    "confianca": "Média",
+    "website_corrigido": "https://sopec.com.br",
+    "obs_contato": "Telefone (33) 3624-3124; e-mail de crediário no site"
+  },
+  "nutrimax": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site oficial nutrimax.ind.br/CONTATO",
+    "confianca": "-",
+    "website_corrigido": "https://nutrimax.ind.br",
+    "obs_contato": "Sem e-mail público; Alfenas (35) 3698-1220; Passos (35) 99823-1926"
+  },
+  "zoocria": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "RF/GuiaPJ + site zoocria.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://zoocria.com.br",
+    "obs_contato": "Telefone (62) 3319-6406; e-mail não informado na RF"
+  },
+  "sociagro": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Diário Cidade / listagens Paraúna-GO",
+    "confianca": "-",
+    "obs_contato": "SOCIAGRO NUTRICAO ANIMAL LTDA (Paraúna/GO): (64) 3556-1969 / (64) 3556-1350; sem e-mail público"
+  },
+  "fazenda santa fé": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site agropecuariasantafe.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://agropecuariasantafe.com.br",
+    "obs_contato": "Fazenda (64) 3614-9400; adm. SP (11) 2308-1611"
+  },
+  "confnamento são lucas": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site confinamentosaolucas.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://www.confinamentosaolucas.com.br",
+    "obs_contato": "Telefone (64) 3641-5536; formulário no site"
+  },
+  "confinamento são lucas": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site confinamentosaolucas.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://www.confinamentosaolucas.com.br",
+    "obs_contato": "Telefone (64) 3641-5536; contato via formulário"
+  },
+  "vibra foods": {
+    "email_principal": "comercial@vibra.com.br",
+    "emails_encontrados": [
+      "comercial@vibra.com.br",
+      "crc@vibra.com.br",
+      "sales@vibra.com.br"
+    ],
+    "fonte": "Site oficial vibra.com.br/contato",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.vibra.com.br",
+    "obs_contato": "CRC 0800 724 4949; comercial mercado interno; sales@ para exterior"
+  },
+  "alta mogiana (confinamentos)": {
+    "email_principal": "contato@altamogiana.com.br",
+    "emails_encontrados": [
+      "contato@altamogiana.com.br"
+    ],
+    "fonte": "RF/MonitorCNPJ + site altamogiana.com.br",
+    "confianca": "Média",
+    "website_corrigido": "https://www.altamogiana.com.br",
+    "obs_contato": "PABX (16) 3810-1000 — e-mail da usina; unidade confinamento sem canal separado"
+  },
+  "granja bonanza": {
+    "email_principal": "",
+    "emails_encontrados": [
+      "edinorfarenzena@hotmail.com"
+    ],
+    "fonte": "Cadastro RF (GuiaPJ) — possível outra Granja Bonanza (Natal/RN)",
+    "confianca": "-",
+    "obs_contato": "Homônimo em Natal/RN; não aplicar ao registro de Rio Verde/GO sem confirmação. Telefone planilha original mantido."
+  },
+  "granja mc": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site mcovos.com.br (M&C Ovos)",
+    "confianca": "-",
+    "website_corrigido": "https://www.mcovos.com.br",
+    "obs_contato": "Possível M&C Ovos; (41) 3035-5738 — confirmar se é a mesma do CSV (Rio Verde)"
+  },
+  "granja faria": {
+    "email_principal": "contato@granjafaria.com.br",
+    "emails_encontrados": [
+      "contato@granjafaria.com.br",
+      "contabilidade@granjafaria.com.br"
+    ],
+    "fonte": "LinkedIn oficial + cadastros empresariais",
+    "confianca": "Alta",
+    "website_corrigido": "https://granjafaria.com.br",
+    "obs_contato": "0800 042 1024 / (48) 3512-8900"
+  },
+  "brunoro agroavícola": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Listagens Venda Nova do Imigrante/ES",
+    "confianca": "-",
+    "obs_contato": "Telefone (28) 3546-6200 / (28) 3015-6100; sem e-mail público"
+  },
+  "granjas jaop": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Listagens ES",
+    "confianca": "-",
+    "obs_contato": "Telefone (28) 35466000; sem e-mail público"
+  },
+  "ovos bl ou granjas bl e bl transportes": {
+    "email_principal": "blovos@outlook.com",
+    "emails_encontrados": [
+      "blovos@outlook.com"
+    ],
+    "fonte": "Guia Jetibá + listagens SMJ/ES",
+    "confianca": "Média",
+    "obs_contato": "(27) 3263-0004; adquirida pela Granja Faria (2023)"
+  },
+  "granjas santa maria": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Listagens Santa Maria de Jetibá/ES",
+    "confianca": "-",
+    "obs_contato": "Telefone (27) 3263-1655; sem e-mail público"
+  },
+  "milhão ingredients - unidade rio verde": {
+    "email_principal": "atendimento@milhao.net",
+    "emails_encontrados": [
+      "atendimento@milhao.net",
+      "vagas.rioverde@milhao.net"
+    ],
+    "fonte": "LinkedIn corporativo + posts unidade Rio Verde",
+    "confianca": "Alta",
+    "website_corrigido": "https://milhao.net",
+    "obs_contato": "vagas.rioverde@ só RH; formulário em milhao.net"
+  },
+  "ouro verde alimentos": {
+    "email_principal": "contato@ouroverdealimentos.ind.br",
+    "emails_encontrados": [
+      "contato@ouroverdealimentos.ind.br"
+    ],
+    "fonte": "LinkedIn oficial + site ouroverdealimentos.ind.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://ouroverdealimentos.ind.br",
+    "obs_contato": "Montividiu/GO; telefone (64) 3629-7200"
+  },
+  "ldc": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Site oficial ldc.com/br",
+    "confianca": "-",
+    "website_corrigido": "https://www.ldc.com/br/",
+    "obs_contato": "Louis Dreyfus Company; formulário no site; SP (11) 3039-6700"
+  },
+  "rdj": {
+    "email_principal": "rodoje@uol.com.br",
+    "emails_encontrados": [
+      "rodoje@uol.com.br"
+    ],
+    "fonte": "RF (RDJ Agropecuária / RDJ Comércio de Grãos - Rio Verde/GO)",
+    "confianca": "Baixa",
+    "obs_contato": "Rio Verde/GO; telefone (64) 98123-0284 / (64) 3621-0462"
+  },
+  "reunidas do pontal - armazém geral ltda": {
+    "email_principal": "reunidasdopontal@reunidasdopontal.com.br",
+    "emails_encontrados": [
+      "reunidasdopontal@reunidasdopontal.com.br"
+    ],
+    "fonte": "RF/GuiaPJ + MonitorCNPJ",
+    "confianca": "Alta",
+    "website_corrigido": "https://reunidasdopontal.com.br",
+    "obs_contato": "Telefone (64) 34306956 / (64) 3609-1156"
+  },
+  "fortaleza armazéns gerais": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Cadastros CNPJ Maurilândia/GO",
+    "confianca": "-",
+    "obs_contato": "Telefone (64) 36472611; e-mail público não verificado"
+  },
+  "bagel - castelândia unidade i": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br",
+    "obs_contato": "Telefone (64) 36491211 / (64) 3608-8100"
+  },
+  "bagel - cruzeiro": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br",
+    "obs_contato": "Mesmo canal BAGEL"
+  },
+  "bagel armazém": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br"
+  },
+  "agropecuária grande lago": {
+    "email_principal": "",
+    "emails_encontrados": [
+      "fiscal.contagem@plenaalimentos.com.br"
+    ],
+    "fonte": "RF/MaisCNPJ + grupo Plena Alimentos",
+    "confianca": "-",
+    "website_corrigido": "https://www.plenaalimentos.com.br",
+    "obs_contato": "Integra Grupo CDM/Plena; e-mails RF são fiscal/jurídico. SAC Plena 0800 941 3434; tel. planilha (62) 36022259"
+  },
+  "cerealista rondonópolis": {
+    "email_principal": "arrozroo@gmail.com",
+    "emails_encontrados": [
+      "arrozroo@gmail.com"
+    ],
+    "fonte": "Página de representantes Coperphós",
+    "confianca": "Média",
+    "obs_contato": "Rondonópolis/MT; telefone (66) 3426-2020"
+  },
+  "petrovina indústria e comércio de cereais": {
+    "email_principal": "",
+    "emails_encontrados": [
+      "curriculos@petrovina.com.br",
+      "dpo@petrovina.com.br"
+    ],
+    "fonte": "Site petrovinasementes.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://petrovinasementes.com.br",
+    "obs_contato": "Sem contato comercial público; tel. (66) 2101-4040; orçamento via site. E-mails RH/DPO"
+  },
+  "cerealista guolo ltda": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "RF/GuiaPJ Sorriso/MT",
+    "confianca": "-",
+    "obs_contato": "Sorriso/MT; telefone (66) 3544-6172"
+  },
+  "agro soja comércio e exportação de cereais ltda": {
+    "email_principal": "sac@agrosoja.com",
+    "emails_encontrados": [
+      "sac@agrosoja.com"
+    ],
+    "fonte": "RF/MonitorCNPJ + site agrosoja.com",
+    "confianca": "Alta",
+    "website_corrigido": "https://agrosoja.com",
+    "obs_contato": "Sorriso/MT; (66) 3544-1910"
+  },
+  "toni cerealista - (unidade de recebimento)": {
+    "email_principal": "tonicerealista@tonicerealista.com.br",
+    "emails_encontrados": [
+      "tonicerealista@tonicerealista.com.br"
+    ],
+    "fonte": "Cadastros oficiais + Diário Cidade",
+    "confianca": "Alta",
+    "website_corrigido": "https://tonicerealista.com.br",
+    "obs_contato": "Matriz Irineópolis/SC tel. (47) 3625-1285"
+  },
+  "toni cerealista matriz - irineópolis/sc": {
+    "email_principal": "tonicerealista@tonicerealista.com.br",
+    "emails_encontrados": [
+      "tonicerealista@tonicerealista.com.br"
+    ],
+    "fonte": "Cadastros oficiais",
+    "confianca": "Alta",
+    "website_corrigido": "https://tonicerealista.com.br"
+  },
+  "toni cerealista - filial união da vitória/pr": {
+    "email_principal": "tonicerealista@tonicerealista.com.br",
+    "emails_encontrados": [
+      "tonicerealista@tonicerealista.com.br"
+    ],
+    "fonte": "Cadastros oficiais",
+    "confianca": "Alta",
+    "website_corrigido": "https://tonicerealista.com.br"
+  },
+  "luzago alimentos": {
+    "email_principal": "sac@luzagoalimentos.com.br",
+    "emails_encontrados": [
+      "sac@luzagoalimentos.com.br"
+    ],
+    "fonte": "Site oficial luzagoalimentos.com.br/contato",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.luzagoalimentos.com.br",
+    "obs_contato": "Pinhais/PR; telefone (41) 3668-7866"
+  },
+  "guzzo agronegócios": {
+    "email_principal": "contato@guzzoagronegocios.com.br",
+    "emails_encontrados": [
+      "contato@guzzoagronegocios.com.br"
+    ],
+    "fonte": "Site guzzoagronegocios.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://guzzoagronegocios.com.br",
+    "obs_contato": "Itapejara d'Oeste/PR; (46) 3526-1344"
+  },
+  "lustoza agrologística": {
+    "email_principal": "contato@lustozaagrologistica.com",
+    "emails_encontrados": [
+      "contato@lustozaagrologistica.com"
+    ],
+    "fonte": "Site lustozaagrologistica.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://lustozaagrologistica.com.br",
+    "obs_contato": "Guarapuava/PR; tel. (42) 3627-1213"
+  },
+  "frangoeste avicultura ltda": {
+    "email_principal": "frangoeste@frangoeste.com.br",
+    "emails_encontrados": [
+      "frangoeste@frangoeste.com.br"
+    ],
+    "fonte": "Guia comercial + site Grupo Zanchetta",
+    "confianca": "Média",
+    "website_corrigido": "https://www.frangoeste.com.br",
+    "obs_contato": "Tietê/SP; PABX (15) 3285-8200"
+  },
+  "gramado avicultura e agropecuária ltda": {
+    "email_principal": "agramado@agramado.com.br",
+    "emails_encontrados": [
+      "agramado@agramado.com.br"
+    ],
+    "fonte": "Site/Instagram oficiais + RF",
+    "confianca": "Alta",
+    "website_corrigido": "https://gramadoavicultura.com.br",
+    "obs_contato": "Central de vendas (54) 3287-1248"
+  },
+  "granja daruma ovos cereais": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Listagens São Paulo/SP",
+    "confianca": "-",
+    "obs_contato": "Telefones (11) 3714-6102; sem e-mail público"
+  },
+  "granja mizumoto comércio exportação e importação ltda": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Cadastros + mizumoto.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://mizumoto.com.br",
+    "obs_contato": "Sem e-mail público; tel. planilha (11) 3761-5764"
+  },
+  "ovos bastos": {
+    "email_principal": "vendas@ovosbastos.com.br",
+    "emails_encontrados": [
+      "vendas@ovosbastos.com.br",
+      "financeiro@ovosbastos.com.br"
+    ],
+    "fonte": "Site ovosbastos.com.br + RF",
+    "confianca": "Alta",
+    "website_corrigido": "http://ovosbastos.com.br",
+    "obs_contato": "Telefone (11) 2068-1371"
+  },
+  "valiosa sementes": {
+    "email_principal": "comercial@valiosasementes.com.br",
+    "emails_encontrados": [
+      "comercial@valiosasementes.com.br",
+      "administrativo@valiosasementes.com.br"
+    ],
+    "fonte": "LinkedIn oficial + MaisCNPJ/RF",
+    "confianca": "Alta",
+    "website_corrigido": "https://valiosasementes.com.br",
+    "obs_contato": "Nazareno/MG; telefone (35) 3516-0208"
+  },
+  "cerealista nacional": {
+    "email_principal": "",
+    "emails_encontrados": [
+      "caferioacre@gmail.com"
+    ],
+    "fonte": "RF/GuiaPJ — possível outra empresa (Jaru/RO)",
+    "confianca": "-",
+    "obs_contato": "Homônimo em RO; não aplicar ao registro Unaí/MG sem confirmar CNPJ. Tel. planilha (38) 998109397"
+  },
+  "alpagri corretora de cereais": {
+    "email_principal": "alpagri@alpagri.com",
+    "emails_encontrados": [
+      "alpagri@alpagri.com"
+    ],
+    "fonte": "Site oficial alpagri.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.alpagri.com.br",
+    "obs_contato": "Rondonópolis/MT; telefone (66) 3421-3131"
+  },
+  "bagel armazm": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br"
+  },
+  "bagel armazem": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br"
+  }
+}
