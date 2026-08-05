@@ -104,6 +104,71 @@ def find_curated(empresa: str, curated: dict) -> dict | None:
     return candidates[0][1]
 
 
+def extract_phones(raw: str) -> list[str]:
+    """Extract BR phone numbers as digits-only (DDD+number)."""
+    if not raw:
+        return []
+    text = raw.replace("Whtas app", " ").replace("Whats app", " ").replace("WhatsApp", " ")
+    text = re.sub(r"(?i)whtas?\s*app", " ", text)
+    # normalize separators
+    chunks = re.split(r"[|/]|;|,|\bn/\b|\be\b", text)
+    found = []
+    for ch in chunks:
+        digits = re.sub(r"\D", "", ch)
+        if digits.startswith("55") and len(digits) >= 12:
+            digits = digits[2:]
+        # 0800
+        if digits.startswith("0800") and len(digits) >= 10:
+            found.append(digits[:11] if len(digits) >= 11 else digits)
+            continue
+        # DDD + 8 or 9
+        if len(digits) >= 10:
+            # take last 10 or 11
+            if len(digits) >= 11 and digits[-9] == "9":
+                found.append(digits[-11:])
+            else:
+                found.append(digits[-10:])
+        elif len(digits) == 9 and digits.startswith("9"):
+            # mobile without DDD - keep as is (incomplete)
+            found.append(digits)
+    # unique preserve order
+    out = []
+    for n in found:
+        if n not in out:
+            out.append(n)
+    return out
+
+
+def format_phone_br(digits: str) -> str:
+    if not digits:
+        return ""
+    if digits.startswith("0800") and len(digits) >= 10:
+        d = digits.ljust(11, "0")[:11]
+        return f"0800 {d[4:7]} {d[7:]}"
+    if len(digits) == 11:
+        return f"({digits[:2]}) {digits[2:7]}-{digits[7:]}"
+    if len(digits) == 10:
+        return f"({digits[:2]}) {digits[2:6]}-{digits[6:]}"
+    return digits
+
+
+def pick_whatsapp(phones: list[str]) -> tuple[str, str]:
+    """Return (whatsapp formatted, wa.me link) preferring mobile 9-digit."""
+    mobiles = [p for p in phones if len(p) == 11 and p[2] == "9"]
+    # also 10-digit landline less preferred
+    chosen = mobiles[0] if mobiles else (phones[0] if phones and not phones[0].startswith("0800") else "")
+    if not chosen:
+        # fallback first mobile-like from any
+        for p in phones:
+            if "9" in p[2:3] or (len(p) == 11):
+                chosen = p
+                break
+    if not chosen:
+        return "", ""
+    link = f"https://wa.me/55{chosen}" if not chosen.startswith("0800") else ""
+    return format_phone_br(chosen), link
+
+
 def is_bad_auto(email: str, empresa: str) -> bool:
     if not email:
         return True
@@ -263,9 +328,29 @@ def merge():
                     conf = "-"
                     fonte = ""
 
-        status = "E-mail encontrado" if email else (
-            "Sem e-mail público (telefone/site)" if (c.get("telefone") or website) else "Sem contato público"
-        )
+        tel_raw = (c.get("telefone") or "").strip()
+        phones = extract_phones(tel_raw)
+        tel_fmt = " / ".join(format_phone_br(p) for p in phones) if phones else tel_raw
+        wa_num, wa_link = pick_whatsapp(phones)
+        # if source mentions whatsapp explicitly and we have a mobile, mark it
+        mentions_wa = bool(re.search(r"(?i)whats|whtas", tel_raw)) or bool(wa_num)
+
+        if email:
+            status = "E-mail encontrado"
+            canal = "E-mail"
+        elif wa_num:
+            status = "Contato por Telefone/WhatsApp"
+            canal = "WhatsApp/Telefone"
+        elif tel_raw:
+            status = "Contato por Telefone"
+            canal = "Telefone"
+        elif website:
+            status = "Somente website/formulário"
+            canal = "Website"
+        else:
+            status = "Sem contato público"
+            canal = "-"
+
         if email and conf == "-":
             conf = "Média"
 
@@ -280,8 +365,12 @@ def merge():
                 "perfil": fix_display_name(c.get("perfil") or ""),
                 "email_principal": email,
                 "emails_adicionais": "; ".join([e for e in emails if e != email]),
-                "telefone": c.get("telefone") or "",
+                "telefone": tel_fmt,
+                "telefone_original": tel_raw,
+                "whatsapp": wa_num,
+                "whatsapp_link": wa_link if mentions_wa or wa_num else "",
                 "website": website,
+                "canal_preferencial": canal,
                 "status": status,
                 "confianca": conf if email else "-",
                 "fonte": fonte,
@@ -327,7 +416,11 @@ def write_sheet(ws, headers, data_rows, key_order):
         ws.cell(1, i, h)
     for r_i, row in enumerate(data_rows, 2):
         for c_i, key in enumerate(key_order, 1):
-            ws.cell(r_i, c_i, row.get(key, ""))
+            val = row.get(key, "")
+            cell = ws.cell(r_i, c_i, val)
+            if key == "whatsapp_link" and isinstance(val, str) and val.startswith("http"):
+                cell.hyperlink = val
+                cell.style = "Hyperlink"
     style_header(ws, len(headers))
     autosize(ws)
     # zebra for data
@@ -335,8 +428,9 @@ def write_sheet(ws, headers, data_rows, key_order):
     for r_i in range(2, len(data_rows) + 2):
         if r_i % 2 == 0:
             for c_i in range(1, len(headers) + 1):
-                if not ws.cell(r_i, c_i).fill or ws.cell(r_i, c_i).fill.fgColor is None:
-                    ws.cell(r_i, c_i).fill = zebra
+                cell = ws.cell(r_i, c_i)
+                if not cell.hyperlink:
+                    cell.fill = zebra
         for c_i in range(1, len(headers) + 1):
             ws.cell(r_i, c_i).alignment = Alignment(vertical="center", wrap_text=True)
 
@@ -353,21 +447,26 @@ def main():
     # Resumo
     ws0 = wb.active
     ws0.title = "01_Resumo"
-    ws0["A1"] = "ALB Brasil — E-mails das Empresas (Clientes)"
+    ws0["A1"] = "ALB Brasil — Contatos das Empresas (E-mail / Telefone / WhatsApp)"
     ws0["A1"].font = Font(bold=True, size=16, color="1F4E79", name="Calibri")
-    ws0["A2"] = "Planilha gerada a partir da lista de clientes, com pesquisa de e-mails públicos (sites oficiais, páginas de contato e fontes institucionais)."
+    ws0["A2"] = (
+        "Planilha com e-mails públicos pesquisados + telefone/WhatsApp da lista original. "
+        "Quando não há e-mail público, o canal principal é telefone ou WhatsApp."
+    )
     ws0["A2"].alignment = Alignment(wrap_text=True)
     ws0.merge_cells("A2:F2")
     ws0.row_dimensions[2].height = 40
 
+    com_wa = sum(1 for r in rows if r.get("whatsapp"))
+    com_tel = sum(1 for r in rows if r.get("telefone"))
     stats = [
         ("Total de empresas únicas", len(rows)),
         ("Com e-mail encontrado", len(with_email)),
-        ("Sem e-mail público (com telefone/site)", sum(1 for r in without if r["telefone"] or r["website"])),
+        ("Com telefone", com_tel),
+        ("Com WhatsApp (celular identificado)", com_wa),
+        ("Sem e-mail — usar Telefone/WhatsApp", sum(1 for r in without if r["telefone"] or r.get("whatsapp"))),
         ("Sem contato público", sum(1 for r in without if not r["telefone"] and not r["website"])),
-        ("Confiança Alta", sum(1 for r in with_email if r["confianca"] == "Alta")),
-        ("Confiança Média", sum(1 for r in with_email if r["confianca"] == "Média")),
-        ("Confiança Baixa", sum(1 for r in with_email if r["confianca"] == "Baixa")),
+        ("Confiança Alta (e-mail)", sum(1 for r in with_email if r["confianca"] == "Alta")),
     ]
     ws0["A4"] = "Indicador"
     ws0["B4"] = "Valor"
@@ -384,28 +483,29 @@ def main():
     ws0["A13"] = "Abas"
     ws0["A13"].font = Font(bold=True, size=12, color="1F4E79")
     guia = [
-        "02_Todos_Contatos — lista completa organizada por UF e segmento",
-        "03_Com_Email — apenas empresas com e-mail público localizado",
-        "04_Sem_Email — empresas sem e-mail público (telefone/site/observações)",
-        "05_Por_UF — visão consolidada por estado",
-        "06_Nutricao_Frigorificos — foco em fábricas de ração, frigoríficos e players maiores",
-        "07_Lista_Disparo — lista limpa só com e-mail (pronta para abordagem comercial)",
-        "08_Legenda — critérios de confiança das fontes",
+        "02_Todos_Contatos — lista completa (e-mail + telefone + WhatsApp)",
+        "03_Com_Email — empresas com e-mail público",
+        "04_Telefone_WhatsApp — fila principal de contato por telefone/WhatsApp",
+        "05_Sem_Email — sem e-mail (usar telefone/WhatsApp)",
+        "06_Por_UF — visão consolidada por estado",
+        "07_Nutricao_Frigorificos — foco ração/frigorífico",
+        "08_Lista_Disparo_Email — só quem tem e-mail",
+        "09_Legenda — critérios de confiança",
     ]
     for i, g in enumerate(guia, 14):
         ws0[f"A{i}"] = g
-    ws0["A20"] = "Observações importantes"
-    ws0["A20"].font = Font(bold=True, color="C00000")
-    ws0["A21"] = (
-        "1) Muitas granjas, cerealistas e armazéns locais não publicam e-mail; o telefone da planilha original foi mantido. "
-        "2) E-mails de imprensa/RI/RH foram usados só quando não havia canal comercial público. "
-        "3) Coluna Confiança indica qualidade da fonte. "
-        "4) Sempre validar o contato antes de disparos em massa (LGPD)."
+    ws0["A23"] = "Observações importantes"
+    ws0["A23"].font = Font(bold=True, color="C00000")
+    ws0["A24"] = (
+        "1) Quando não há e-mail público, use Telefone/WhatsApp (aba 04). "
+        "2) Link WhatsApp abre conversa no wa.me (celular com 9º dígito). "
+        "3) Validar contatos antes de disparos (LGPD). "
+        "4) 0800 não vai para WhatsApp."
     )
-    ws0["A21"].alignment = Alignment(wrap_text=True)
-    ws0.merge_cells("A21:F21")
-    ws0.row_dimensions[21].height = 55
-    ws0.column_dimensions["A"].width = 55
+    ws0["A24"].alignment = Alignment(wrap_text=True)
+    ws0.merge_cells("A24:F24")
+    ws0.row_dimensions[24].height = 55
+    ws0.column_dimensions["A"].width = 60
     ws0.column_dimensions["B"].width = 18
 
     headers = [
@@ -414,15 +514,17 @@ def main():
         "Município",
         "Segmento",
         "Área de Atuação",
-        "Perfil",
+        "Canal Preferencial",
         "E-mail Principal",
         "E-mails Adicionais",
         "Telefone",
+        "WhatsApp",
+        "Link WhatsApp",
         "Website",
         "Status",
         "Confiança",
         "Fonte",
-        "Observações / Canal Alternativo",
+        "Observações",
     ]
     keys = [
         "empresa",
@@ -430,10 +532,12 @@ def main():
         "municipio",
         "segmento",
         "area",
-        "perfil",
+        "canal_preferencial",
         "email_principal",
         "emails_adicionais",
         "telefone",
+        "whatsapp",
+        "whatsapp_link",
         "website",
         "status",
         "confianca",
@@ -447,11 +551,51 @@ def main():
     ws2 = wb.create_sheet("03_Com_Email")
     write_sheet(ws2, headers, with_email, keys)
 
-    ws3 = wb.create_sheet("04_Sem_Email")
+    # Dedicated phone/WhatsApp sheet — prioritize those without email
+    phone_rows = [r for r in rows_sorted if r.get("telefone") or r.get("whatsapp")]
+    phone_rows = sorted(
+        phone_rows,
+        key=lambda r: (
+            0 if not r["email_principal"] else 1,
+            0 if r.get("whatsapp") else 1,
+            r["uf"],
+            r["empresa"],
+        ),
+    )
+    wa_headers = [
+        "Empresa",
+        "UF",
+        "Município",
+        "Segmento",
+        "Telefone",
+        "WhatsApp",
+        "Link WhatsApp",
+        "E-mail (se houver)",
+        "Canal Preferencial",
+        "Status",
+        "Observações",
+    ]
+    wa_keys = [
+        "empresa",
+        "uf",
+        "municipio",
+        "segmento",
+        "telefone",
+        "whatsapp",
+        "whatsapp_link",
+        "email_principal",
+        "canal_preferencial",
+        "status",
+        "obs_contato",
+    ]
+    ws_wa = wb.create_sheet("04_Telefone_WhatsApp")
+    write_sheet(ws_wa, wa_headers, phone_rows, wa_keys)
+
+    ws3 = wb.create_sheet("05_Sem_Email")
     write_sheet(ws3, headers, without, keys)
 
     # Por UF
-    ws4 = wb.create_sheet("05_Por_UF")
+    ws4 = wb.create_sheet("06_Por_UF")
     from collections import Counter, defaultdict
 
     by_uf = defaultdict(lambda: {"total": 0, "com_email": 0, "sem_email": 0})
@@ -509,11 +653,11 @@ def main():
             continue
         seen.add(r["empresa"])
         focus_u.append(r)
-    ws5 = wb.create_sheet("06_Nutricao_Frigorificos")
+    ws5 = wb.create_sheet("07_Nutricao_Frigorificos")
     write_sheet(ws5, headers, focus_u, keys)
 
     # Clean mailing list for outreach
-    ws_mail = wb.create_sheet("07_Lista_Disparo")
+    ws_mail = wb.create_sheet("08_Lista_Disparo_Email")
     mail_headers = [
         "Empresa",
         "UF",
@@ -522,6 +666,7 @@ def main():
         "E-mail Principal",
         "E-mails Adicionais",
         "Telefone",
+        "WhatsApp",
         "Confiança",
         "Observações",
     ]
@@ -533,13 +678,14 @@ def main():
         "email_principal",
         "emails_adicionais",
         "telefone",
+        "whatsapp",
         "confianca",
         "obs_contato",
     ]
     write_sheet(ws_mail, mail_headers, with_email, mail_keys)
 
     # Legend sheet
-    ws6 = wb.create_sheet("08_Legenda")
+    ws6 = wb.create_sheet("09_Legenda")
     ws6["A1"] = "Legenda de Confiança"
     ws6["A1"].font = Font(bold=True, size=14, color="1F4E79")
     legend = [
