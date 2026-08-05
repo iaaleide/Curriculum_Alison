@@ -400,5 +400,23 @@
     "confianca": "Alta",
     "website_corrigido": "https://www.alpagri.com.br",
     "obs_contato": "Rondonópolis/MT; telefone (66) 3421-3131"
+  },
+  "bagel armazm": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br"
+  },
+  "bagel armazem": {
+    "email_principal": "bagel@bagel.com.br",
+    "emails_encontrados": [
+      "bagel@bagel.com.br"
+    ],
+    "fonte": "Site oficial bagel.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.bagel.com.br"
   }
 }
