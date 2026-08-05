@@ -483,24 +483,25 @@ def main():
     ws0["A13"] = "Abas"
     ws0["A13"].font = Font(bold=True, size=12, color="1F4E79")
     guia = [
-        "02_Todos_Contatos — lista completa (e-mail + telefone + WhatsApp)",
-        "03_Com_Email — empresas com e-mail público",
-        "04_Telefone_WhatsApp — fila principal de contato por telefone/WhatsApp",
-        "05_Sem_Email — sem e-mail (usar telefone/WhatsApp)",
-        "06_Por_UF — visão consolidada por estado",
-        "07_Nutricao_Frigorificos — foco ração/frigorífico",
-        "08_Lista_Disparo_Email — só quem tem e-mail",
-        "09_Legenda — critérios de confiança",
+        "02_Contatos_Completos — Empresa | E-mail | Telefone | WhatsApp (use esta)",
+        "03_Todos_Detalhado — lista completa com todas as colunas",
+        "04_Com_Email — só quem tem e-mail",
+        "05_Telefone_WhatsApp — fila telefone/WhatsApp",
+        "06_Sem_Email — sem e-mail (usar telefone/WhatsApp)",
+        "07_Por_UF — visão por estado",
+        "08_Nutricao_Frigorificos — foco ração/frigorífico",
+        "09_Lista_Disparo_Email — disparo por e-mail",
+        "10_Legenda — critérios de confiança",
     ]
     for i, g in enumerate(guia, 14):
         ws0[f"A{i}"] = g
     ws0["A23"] = "Observações importantes"
     ws0["A23"].font = Font(bold=True, color="C00000")
     ws0["A24"] = (
-        "1) Quando não há e-mail público, use Telefone/WhatsApp (aba 04). "
-        "2) Link WhatsApp abre conversa no wa.me (celular com 9º dígito). "
-        "3) Validar contatos antes de disparos (LGPD). "
-        "4) 0800 não vai para WhatsApp."
+        "1) Aba principal: 02_Contatos_Completos (E-mail | Telefone | WhatsApp). "
+        "2) Sem e-mail: use Telefone/WhatsApp (aba 05). "
+        "3) Link WhatsApp abre wa.me. 0800 não vai para WhatsApp. "
+        "4) Validar contatos antes de disparos (LGPD)."
     )
     ws0["A24"].alignment = Alignment(wrap_text=True)
     ws0.merge_cells("A24:F24")
@@ -545,10 +546,38 @@ def main():
         "obs_contato",
     ]
 
-    ws1 = wb.create_sheet("02_Todos_Contatos")
+    # Simple front sheet with the core contact columns
+    ws_simple = wb.create_sheet("02_Contatos_Completos")
+    simple_headers = [
+        "Empresa",
+        "UF",
+        "Município",
+        "Segmento",
+        "E-mail",
+        "Telefone",
+        "WhatsApp",
+        "Link WhatsApp",
+        "Canal Preferencial",
+        "Observações",
+    ]
+    simple_keys = [
+        "empresa",
+        "uf",
+        "municipio",
+        "segmento",
+        "email_principal",
+        "telefone",
+        "whatsapp",
+        "whatsapp_link",
+        "canal_preferencial",
+        "obs_contato",
+    ]
+    write_sheet(ws_simple, simple_headers, rows_sorted, simple_keys)
+
+    ws1 = wb.create_sheet("03_Todos_Detalhado")
     write_sheet(ws1, headers, rows_sorted, keys)
 
-    ws2 = wb.create_sheet("03_Com_Email")
+    ws2 = wb.create_sheet("04_Com_Email")
     write_sheet(ws2, headers, with_email, keys)
 
     # Dedicated phone/WhatsApp sheet — prioritize those without email
@@ -588,14 +617,14 @@ def main():
         "status",
         "obs_contato",
     ]
-    ws_wa = wb.create_sheet("04_Telefone_WhatsApp")
+    ws_wa = wb.create_sheet("05_Telefone_WhatsApp")
     write_sheet(ws_wa, wa_headers, phone_rows, wa_keys)
 
-    ws3 = wb.create_sheet("05_Sem_Email")
-    write_sheet(ws3, headers, without, keys)
+    ws3 = wb.create_sheet("06_Sem_Email")
+    write_sheet(ws3, simple_headers, without, simple_keys)
 
     # Por UF
-    ws4 = wb.create_sheet("06_Por_UF")
+    ws4 = wb.create_sheet("07_Por_UF")
     from collections import Counter, defaultdict
 
     by_uf = defaultdict(lambda: {"total": 0, "com_email": 0, "sem_email": 0})
@@ -653,20 +682,20 @@ def main():
             continue
         seen.add(r["empresa"])
         focus_u.append(r)
-    ws5 = wb.create_sheet("07_Nutricao_Frigorificos")
-    write_sheet(ws5, headers, focus_u, keys)
+    ws5 = wb.create_sheet("08_Nutricao_Frigorificos")
+    write_sheet(ws5, simple_headers, focus_u, simple_keys)
 
     # Clean mailing list for outreach
-    ws_mail = wb.create_sheet("08_Lista_Disparo_Email")
+    ws_mail = wb.create_sheet("09_Lista_Disparo_Email")
     mail_headers = [
         "Empresa",
         "UF",
         "Município",
         "Segmento",
-        "E-mail Principal",
-        "E-mails Adicionais",
+        "E-mail",
         "Telefone",
         "WhatsApp",
+        "Link WhatsApp",
         "Confiança",
         "Observações",
     ]
@@ -676,16 +705,16 @@ def main():
         "municipio",
         "segmento",
         "email_principal",
-        "emails_adicionais",
         "telefone",
         "whatsapp",
+        "whatsapp_link",
         "confianca",
         "obs_contato",
     ]
     write_sheet(ws_mail, mail_headers, with_email, mail_keys)
 
     # Legend sheet
-    ws6 = wb.create_sheet("09_Legenda")
+    ws6 = wb.create_sheet("10_Legenda")
     ws6["A1"] = "Legenda de Confiança"
     ws6["A1"].font = Font(bold=True, size=14, color="1F4E79")
     legend = [
