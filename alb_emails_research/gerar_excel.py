@@ -45,12 +45,24 @@ def load_curated() -> dict:
     return curated
 
 
+def _stem_tokens(tokens: list[str]) -> list[str]:
+    """Loose stems to tolerate lost accents from source CSV (comrcio≈comercio)."""
+    stop = {"de", "da", "do", "das", "dos", "e", "ltda", "ltd", "sa", "s", "a", "o", "i"}
+    out = []
+    for t in tokens:
+        if t in stop or len(t) < 2:
+            continue
+        # keep first 6 chars as stem for longer words
+        out.append(t[:6] if len(t) > 6 else t)
+    return out
+
+
 def find_curated(empresa: str, curated: dict) -> dict | None:
     key = norm(empresa)
     if key in curated:
         return curated[key]
     tokens = key.split()
-    # Short/generic brand keys: only exact token equality for first token(s)
+    stems = _stem_tokens(tokens)
     SHORT = {"brf", "jbs", "ldc", "bunge", "cargill", "comigo", "guabi", "inpasa", "marfrig", "minerva"}
     candidates = []
     for ck, cv in curated.items():
@@ -64,19 +76,23 @@ def find_curated(empresa: str, curated: dict) -> dict | None:
         if len(ct) >= 2 and tokens[: len(ct)] == ct:
             candidates.append((95, cv, ck))
             continue
+        # stem-based prefix match (handles Milhao/Milho, Guzzo Agronegocios, etc.)
+        cstems = _stem_tokens(ct)
+        if len(cstems) >= 2 and len(stems) >= len(cstems) and stems[: len(cstems)] == cstems:
+            candidates.append((90, cv, ck))
+            continue
+        # first two significant stems equal
+        if len(cstems) >= 2 and len(stems) >= 2 and stems[:2] == cstems[:2] and len(cstems[0]) >= 4:
+            candidates.append((88, cv, ck))
+            continue
         # single-token curated key
         if len(ct) == 1:
             tok = ct[0]
             if tok in SHORT:
-                # only if company first token equals brand and no conflicting second brand word
-                if tokens and tokens[0] == tok and (len(tokens) == 1 or tokens[1] not in {"bioenergia", "alimentos"} or tok == tokens[0]):
-                    # allow "Cargill" exact or "Cargill Nutricao..."; block Bioenergia from Nutron unless explicit key
+                if tokens and tokens[0] == tok:
                     if tok == "cargill" and len(tokens) > 1 and tokens[1] == "bioenergia":
                         continue
-                    if tok == "bunge" and tokens[0] == "bunge":
-                        candidates.append((85, cv, ck))
-                    elif tokens[0] == tok:
-                        candidates.append((85, cv, ck))
+                    candidates.append((85, cv, ck))
             elif tok == tokens[0] and len(tok) >= 5:
                 candidates.append((70, cv, ck))
     if not candidates:
