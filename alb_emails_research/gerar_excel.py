@@ -36,7 +36,7 @@ def norm(s: str) -> str:
 
 def load_curated() -> dict:
     curated = {}
-    for name in ("curated_emails.json", "extra_curated.json"):
+    for name in ("curated_emails.json", "extra_curated.json", "batch2_curated.json"):
         p = ROOT / name
         if p.exists():
             data = json.loads(p.read_text(encoding="utf-8"))
