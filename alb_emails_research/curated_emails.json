@@ -1,0 +1,334 @@
+{
+  "pif paf alimentos": {
+    "email_principal": "parceriarepresentacao@pifpaf.com.br",
+    "emails_encontrados": [
+      "parceriarepresentacao@pifpaf.com.br",
+      "lucianasales@pifpaf.com.br",
+      "leandromarques@pifpaf.com.br",
+      "joicelenemartins@pifpaf.com.br"
+    ],
+    "fonte": "Portal ecompras / LinkedIn Pif Paf",
+    "confianca": "Alta",
+    "website_corrigido": "https://pifpafalimentos.com.br"
+  },
+  "pif paf alimentos/jaguafrangos btz": {
+    "email_principal": "parceriarepresentacao@pifpaf.com.br",
+    "emails_encontrados": ["parceriarepresentacao@pifpaf.com.br"],
+    "fonte": "Pif Paf Alimentos",
+    "confianca": "Alta",
+    "website_corrigido": "https://pifpafalimentos.com.br"
+  },
+  "rivelli": {
+    "email_principal": "rivelli@rivelli.ind.br",
+    "emails_encontrados": ["rivelli@rivelli.ind.br", "sac@rivelli.ind.br"],
+    "fonte": "https://www.rivelli.ind.br / CNPJCheck",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.rivelli.ind.br"
+  },
+  "brf": {
+    "email_principal": "duvidas.fornec.supri@brf.com",
+    "emails_encontrados": [
+      "duvidas.fornec.supri@brf.com",
+      "saccentral@brf.com",
+      "sac@brf.com.br",
+      "faleconoscointegrados@brf-br.com"
+    ],
+    "fonte": "https://www.brf-global.com portal do fornecedor / SAC MBRF",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.mbrf.com"
+  },
+  "jbs": {
+    "email_principal": "imprensa@jbs.com.br",
+    "emails_encontrados": ["imprensa@jbs.com.br"],
+    "fonte": "https://www.jbs.com.br/contato/",
+    "confianca": "Média",
+    "website_corrigido": "https://www.jbs.com.br",
+    "obs_contato": "Comercial/compras: formulário no site JBS ou SAC das marcas"
+  },
+  "jbs/seara": {
+    "email_principal": "imprensa@jbs.com.br",
+    "emails_encontrados": ["imprensa@jbs.com.br"],
+    "fonte": "https://www.jbs.com.br/contato/",
+    "confianca": "Média",
+    "website_corrigido": "https://seara.com.br",
+    "obs_contato": "PJ Seara: 0800 047 3031 / formulário searafoodsolutions.com.br/contato"
+  },
+  "seara/jbs": {
+    "email_principal": "imprensa@jbs.com.br",
+    "emails_encontrados": ["imprensa@jbs.com.br"],
+    "fonte": "https://www.jbs.com.br/contato/",
+    "confianca": "Média",
+    "website_corrigido": "https://seara.com.br",
+    "obs_contato": "PJ: 0800 047 3031"
+  },
+  "cargill nutricao animal (nutron)": {
+    "email_principal": "sac_nutron@cargill.com",
+    "emails_encontrados": [
+      "sac_nutron@cargill.com",
+      "nutronbrasil_gestaoclientes@cargill.com"
+    ],
+    "fonte": "https://nutron.com.br/contato/",
+    "confianca": "Alta",
+    "website_corrigido": "https://nutron.com.br"
+  },
+  "cargill": {
+    "email_principal": "sac_nutron@cargill.com",
+    "emails_encontrados": ["sac_nutron@cargill.com", "nutronbrasil_gestaoclientes@cargill.com"],
+    "fonte": "https://nutron.com.br/contato/",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.cargill.com.br"
+  },
+  "soma nutrição animal": {
+    "email_principal": "contato@somanutricaoanimal.com.br",
+    "emails_encontrados": ["contato@somanutricaoanimal.com.br", "trabalheconosco@somanutricaoanimal.com.br"],
+    "fonte": "LinkedIn / site Soma Nutrição Animal",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.somanutricaoanimal.com.br"
+  },
+  "de heus": {
+    "email_principal": "contato@deheus.com",
+    "emails_encontrados": ["contato@deheus.com"],
+    "fonte": "https://www.deheus.com.br/contato",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.deheus.com.br"
+  },
+  "aurora coop": {
+    "email_principal": "privacidade@auroracoop.com.br",
+    "emails_encontrados": [
+      "privacidade@auroracoop.com.br",
+      "alceu@auroracoop.com.br",
+      "symone@auroracoop.com.br",
+      "gilmarsc@auroracoop.com.br",
+      "andre-luz@auroracoop.com.br",
+      "arley@auroracoop.com.br"
+    ],
+    "fonte": "https://auroracoop.com.br relatório anual (e-mails institucionais)",
+    "confianca": "Média",
+    "website_corrigido": "https://auroracoop.com.br",
+    "obs_contato": "SAC: 0800 011 3500. Fornecedores/clientes: contatos setoriais no site (área Fale Conosco)."
+  },
+  "minerva": {
+    "email_principal": "meuminerva@minervafoods.com",
+    "emails_encontrados": [
+      "meuminerva@minervafoods.com",
+      "traders.origins@minervafoods.com",
+      "export@minervafoods.com",
+      "imprensa@minervafoods.com",
+      "ri@minervafoods.com"
+    ],
+    "fonte": "https://minervafoods.com / RI Minerva",
+    "confianca": "Alta",
+    "website_corrigido": "https://minervafoods.com",
+    "obs_contato": "Fornecedor: formulário em minervafoods.com/fale-conosco"
+  },
+  "marfrig": {
+    "email_principal": "mercado@marfrig.com.br",
+    "emails_encontrados": ["mercado@marfrig.com.br", "export@marfrig.com.br", "ri@marfrig.com.br"],
+    "fonte": "Canais oficiais Marfrig / MBRF SAC",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.marfrig.com.br"
+  },
+  "rações patense": {
+    "email_principal": "vendas@patense.com.br",
+    "emails_encontrados": ["vendas@patense.com.br", "sales@patense.com.br", "vendas@farol.com.br"],
+    "fonte": "Política ESG Patense (site oficial)",
+    "confianca": "Alta",
+    "website_corrigido": "https://patense.com.br"
+  },
+  "coopatos": {
+    "email_principal": "agropecuaria.gerencia@coopatos.com.br",
+    "emails_encontrados": ["agropecuaria.gerencia@coopatos.com.br"],
+    "fonte": "https://coopatos.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://coopatos.com.br"
+  },
+  "cooxupe": {
+    "email_principal": "faleconosco@cooxupe.com.br",
+    "emails_encontrados": ["faleconosco@cooxupe.com.br"],
+    "fonte": "Relatório Cooxupé",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.cooxupe.com.br"
+  },
+  "premier pet": {
+    "email_principal": "contato@premierpet.com.br",
+    "emails_encontrados": ["contato@premierpet.com.br"],
+    "fonte": "https://premierpet.com.br/fale-conosco/",
+    "confianca": "Alta",
+    "website_corrigido": "https://premierpet.com.br"
+  },
+  "special dog": {
+    "email_principal": "specialdog@specialdog.com",
+    "emails_encontrados": ["specialdog@specialdog.com"],
+    "fonte": "Facebook oficial / site Special Dog",
+    "confianca": "Alta",
+    "website_corrigido": "https://specialdog.com.br"
+  },
+  "sao salvador alimentos - ssa": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.ssa-br.com",
+    "confianca": "-",
+    "website_corrigido": "https://www.ssa-br.com",
+    "obs_contato": "Telefone: (62) 3375-7000 — e-mail público não localizado; usar formulário do site"
+  },
+  "são salvador alimentos": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.ssa-br.com",
+    "confianca": "-",
+    "website_corrigido": "https://www.ssa-br.com",
+    "obs_contato": "Telefone: (62) 3375-7000"
+  },
+  "dsm (tortuga)": {
+    "email_principal": "contato.brasil@dsm-firmenich.com",
+    "emails_encontrados": ["contato.brasil@dsm-firmenich.com"],
+    "fonte": "DSM-Firmenich Brasil (contato institucional)",
+    "confianca": "Média",
+    "website_corrigido": "https://www.dsm-firmenich.com"
+  },
+  "ccpr - itambé": {
+    "email_principal": "faleconosco@ccpr.coop.br",
+    "emails_encontrados": ["faleconosco@ccpr.coop.br"],
+    "fonte": "CCPR / Itambé canais institucionais",
+    "confianca": "Média",
+    "website_corrigido": "https://ccpr.coop.br"
+  },
+  "adimax pet": {
+    "email_principal": "contato@adimax.com.br",
+    "emails_encontrados": ["contato@adimax.com.br"],
+    "fonte": "Site Adimax",
+    "confianca": "Média",
+    "website_corrigido": "https://www.adimax.com.br"
+  },
+  "friato": {
+    "email_principal": "contato@friato.com.br",
+    "emails_encontrados": ["contato@friato.com.br"],
+    "fonte": "Site Friato",
+    "confianca": "Média",
+    "website_corrigido": "https://www.friato.com.br"
+  },
+  "guabi": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.guabi.com.br/contato",
+    "confianca": "-",
+    "website_corrigido": "https://www.guabi.com.br",
+    "obs_contato": "0800 940 3100 — atendimento via formulário no site (e-mail geral não publicado)"
+  },
+  "mogiana alimentos": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Pertence à Guabi",
+    "confianca": "-",
+    "website_corrigido": "https://www.guabi.com.br",
+    "obs_contato": "Mesmo canal Guabi: 0800 940 3100"
+  },
+  "total/neovia (adm)": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.admnutricaoanimal.com.br",
+    "confianca": "-",
+    "website_corrigido": "https://www.adm.com",
+    "obs_contato": "ADM Nutrição Animal — contato via formulário do site"
+  },
+  "agroceres multimix": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://agroceresmultimix.com.br/contato",
+    "confianca": "-",
+    "website_corrigido": "https://agroceresmultimix.com.br",
+    "obs_contato": "Telefone: (19) 3526-8500 — formulário no site"
+  },
+  "bunge": {
+    "email_principal": "faleconosco@bunge.com",
+    "emails_encontrados": ["faleconosco@bunge.com"],
+    "fonte": "Bunge Brasil canais institucionais",
+    "confianca": "Média",
+    "website_corrigido": "https://www.bunge.com.br"
+  },
+  "bunge alimentos": {
+    "email_principal": "faleconosco@bunge.com",
+    "emails_encontrados": ["faleconosco@bunge.com"],
+    "fonte": "Bunge Brasil",
+    "confianca": "Média",
+    "website_corrigido": "https://www.bunge.com.br"
+  },
+  "ldc": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Louis Dreyfus Company",
+    "confianca": "-",
+    "website_corrigido": "https://www.ldc.com",
+    "obs_contato": "Contato via portal LDC / telefone da unidade"
+  },
+  "inpasa": {
+    "email_principal": "contato@inpasa.com.br",
+    "emails_encontrados": ["contato@inpasa.com.br"],
+    "fonte": "Site Inpasa",
+    "confianca": "Média",
+    "website_corrigido": "https://www.inpasa.com.br"
+  },
+  "3 tentos": {
+    "email_principal": "ri@3tentos.com.br",
+    "emails_encontrados": ["ri@3tentos.com.br", "contato@3tentos.com.br"],
+    "fonte": "Grupo 3tentos RI / institucional",
+    "confianca": "Média",
+    "website_corrigido": "https://www.3tentos.com.br"
+  },
+  "amaggi pecuária ltda": {
+    "email_principal": "comunicacao@amaggi.com.br",
+    "emails_encontrados": ["comunicacao@amaggi.com.br"],
+    "fonte": "Amaggi institucional",
+    "confianca": "Média",
+    "website_corrigido": "https://www.amaggi.com.br"
+  },
+  "usina boa vista (grupo são martinho)": {
+    "email_principal": "ri@saomartinho.com.br",
+    "emails_encontrados": ["ri@saomartinho.com.br"],
+    "fonte": "Grupo São Martinho RI",
+    "confianca": "Média",
+    "website_corrigido": "https://www.saomartinho.com.br"
+  },
+  "comigo": {
+    "email_principal": "comigo@comigo.com.br",
+    "emails_encontrados": ["comigo@comigo.com.br"],
+    "fonte": "Cooperativa Comigo",
+    "confianca": "Média",
+    "website_corrigido": "https://www.comigo.com.br"
+  },
+  "mcassab": {
+    "email_principal": "sac@mcassab.com.br",
+    "emails_encontrados": ["sac@mcassab.com.br"],
+    "fonte": "MCassab institucional",
+    "confianca": "Média",
+    "website_corrigido": "https://www.mcassab.com.br"
+  },
+  "pamplona alimentos": {
+    "email_principal": "sac@pamplona.com.br",
+    "emails_encontrados": ["sac@pamplona.com.br"],
+    "fonte": "Pamplona Alimentos",
+    "confianca": "Média",
+    "website_corrigido": "https://www.pamplona.com.br"
+  },
+  "caramuru alimentos": {
+    "email_principal": "sac@caramuru.com.br",
+    "emails_encontrados": ["sac@caramuru.com.br"],
+    "fonte": "Caramuru Alimentos",
+    "confianca": "Média",
+    "website_corrigido": "https://www.caramuru.com.br"
+  },
+  "granja faria": {
+    "email_principal": "contato@granjafaria.com.br",
+    "emails_encontrados": ["contato@granjafaria.com.br"],
+    "fonte": "Granja Faria institucional",
+    "confianca": "Média",
+    "website_corrigido": "https://www.granjafaria.com.br"
+  },
+  "vibra foods": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "",
+    "confianca": "-",
+    "obs_contato": "Verificar: no CSV o website aponta vibra.com.br (possível inconsistência de cadastro)"
+  }
+}

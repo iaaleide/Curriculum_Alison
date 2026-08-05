@@ -1,0 +1,414 @@
+{
+  "nutrimax": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://nutrimax.ind.br/CONTATO",
+    "confianca": "-",
+    "website_corrigido": "https://nutrimax.ind.br/",
+    "obs_contato": "Telefone (35) 3698-1220 — e-mail público não publicado; usar formulário do site"
+  },
+  "nutriminas": {
+    "email_principal": "nutreminas@nutreminas.com.br",
+    "emails_encontrados": ["nutreminas@nutreminas.com.br", "parademinas@nutreminas.com.br"],
+    "fonte": "https://www.nutreminas.com.br/contact",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.nutreminas.com.br/"
+  },
+  "granja planalto": {
+    "email_principal": "qualidade@planaltoovos.com.br",
+    "emails_encontrados": ["qualidade@planaltoovos.com.br"],
+    "fonte": "https://www.planaltoovos.com.br/contato",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.planaltoovos.com.br/"
+  },
+  "coopervap": {
+    "email_principal": "secretaria@coopervap.com.br",
+    "emails_encontrados": ["secretaria@coopervap.com.br", "comunicacao@coopervap.com.br"],
+    "fonte": "https://coopervap.com.br/web/contato/",
+    "confianca": "Alta",
+    "website_corrigido": "https://coopervap.com.br/"
+  },
+  "adimax pet": {
+    "email_principal": "sac@adimax.com.br",
+    "emails_encontrados": ["sac@adimax.com.br", "comprafacil@adimax.com.br"],
+    "fonte": "https://adimax.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://adimax.com.br/"
+  },
+  "friato": {
+    "email_principal": "comunicacao@friato.com.br",
+    "emails_encontrados": ["comunicacao@friato.com.br", "contabilidade@friato.com.br"],
+    "fonte": "https://friato.com.br/br/fale-conosco",
+    "confianca": "Alta",
+    "website_corrigido": "https://friato.com.br/"
+  },
+  "fazenda conforto": {
+    "email_principal": "contato@fazendaconforto.com.br",
+    "emails_encontrados": ["contato@fazendaconforto.com.br"],
+    "fonte": "https://www.fazendaconforto.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://fazendaconforto.com.br/"
+  },
+  "fazenda santa fé": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://agropecuariasantafe.com.br/",
+    "confianca": "-",
+    "website_corrigido": "https://agropecuariasantafe.com.br/",
+    "obs_contato": "Telefone (64) 3614-9400 — e-mail público não localizado"
+  },
+  "confnamento são lucas": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.confinamentosaolucas.com.br/",
+    "confianca": "-",
+    "website_corrigido": "https://www.confinamentosaolucas.com.br/",
+    "obs_contato": "Formulário no site; e-mail público não encontrado"
+  },
+  "confinamento são lucas": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://www.confinamentosaolucas.com.br/",
+    "confianca": "-",
+    "website_corrigido": "https://www.confinamentosaolucas.com.br/",
+    "obs_contato": "Formulário no site; e-mail público não encontrado"
+  },
+  "ekoa nutrição animal": {
+    "email_principal": "financeiro@ekoa-ls.com",
+    "emails_encontrados": ["financeiro@ekoa-ls.com"],
+    "fonte": "Cadastro CNPJ / https://ekoalifesciences.com/contato",
+    "confianca": "Média",
+    "website_corrigido": "https://ekoalifesciences.com/",
+    "obs_contato": "Comercial via formulário do site (departamento Saúde e Nutrição Animal)"
+  },
+  "zoocria": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://zoocria.com.br/",
+    "confianca": "-",
+    "website_corrigido": "https://zoocria.com.br/",
+    "obs_contato": "Telefone (62) 3319-6405 / (62) 3319-1047 — e-mail não informado publicamente"
+  },
+  "zooflora": {
+    "email_principal": "zooflora@zooflora.com.br",
+    "emails_encontrados": ["zooflora@zooflora.com.br"],
+    "fonte": "ASBRAM / https://zooflora.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://zooflora.com.br/"
+  },
+  "vigor nutrição animal": {
+    "email_principal": "vigornutricaoanimal@gmail.com",
+    "emails_encontrados": ["vigornutricaoanimal@gmail.com"],
+    "fonte": "Cadastro CNPJ Receita Federal",
+    "confianca": "Média",
+    "obs_contato": "Telefone (64) 3661-9070"
+  },
+  "jh nutrição animal": {
+    "email_principal": "contabil@grupoullmann.com.br",
+    "emails_encontrados": ["contabil@grupoullmann.com.br"],
+    "fonte": "Grupo Ullmann / cadastro CNPJ",
+    "confianca": "Média",
+    "website_corrigido": "https://www.grupoullmann.com.br/",
+    "obs_contato": "Telefone (31) 3025-6464"
+  },
+  "agrifirm": {
+    "email_principal": "a-br-contato@agrifirm.com",
+    "emails_encontrados": ["a-br-contato@agrifirm.com"],
+    "fonte": "https://www.agrifirm.com.br/fale-conosco/contato/",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.agrifirm.com.br/"
+  },
+  "são salvador alimentos - ssa": {
+    "email_principal": "sac@ssa-br.com",
+    "emails_encontrados": ["sac@ssa-br.com"],
+    "fonte": "https://ssa-br.com/fale-conosco/",
+    "confianca": "Alta",
+    "website_corrigido": "https://ssa-br.com/"
+  },
+  "sao salvador alimentos - ssa": {
+    "email_principal": "sac@ssa-br.com",
+    "emails_encontrados": ["sac@ssa-br.com"],
+    "fonte": "https://ssa-br.com/fale-conosco/",
+    "confianca": "Alta",
+    "website_corrigido": "https://ssa-br.com/"
+  },
+  "são salvador alimentos": {
+    "email_principal": "sac@ssa-br.com",
+    "emails_encontrados": ["sac@ssa-br.com"],
+    "fonte": "https://ssa-br.com/fale-conosco/",
+    "confianca": "Alta",
+    "website_corrigido": "https://ssa-br.com/"
+  },
+  "inpasa": {
+    "email_principal": "sac@inpasa.com.br",
+    "emails_encontrados": ["sac@inpasa.com.br"],
+    "fonte": "Perfil corporativo / site Inpasa",
+    "confianca": "Média",
+    "website_corrigido": "https://www.inpasa.com.br/"
+  },
+  "comigo": {
+    "email_principal": "comercial@comigo.com.br",
+    "emails_encontrados": ["comercial@comigo.com.br", "sac@comigo.com.br"],
+    "fonte": "https://comigo.coop.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://comigo.coop.br/"
+  },
+  "nutrissal": {
+    "email_principal": "contabilidade@gruponutrisal.com.br",
+    "emails_encontrados": ["contabilidade@gruponutrisal.com.br"],
+    "fonte": "Grupo Nutrisal / cadastro CNPJ",
+    "confianca": "Média",
+    "website_corrigido": "https://gruponutrisal.com.br/",
+    "obs_contato": "Telefone (64) 3620-7100"
+  },
+  "grupo cereal": {
+    "email_principal": "sac@grupocereal.com.br",
+    "emails_encontrados": ["sac@grupocereal.com.br"],
+    "fonte": "https://www.grupocereal.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.grupocereal.com.br/"
+  },
+  "brejeiro": {
+    "email_principal": "vendas@brejeiro.com.br",
+    "emails_encontrados": ["vendas@brejeiro.com.br", "sac@brejeiro.com.br"],
+    "fonte": "https://brejeiro.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://brejeiro.com.br/"
+  },
+  "caramuru alimentos": {
+    "email_principal": "contato@caramuru.com",
+    "emails_encontrados": ["contato@caramuru.com", "sinha@caramuru.com"],
+    "fonte": "https://caramuru.com/",
+    "confianca": "Alta",
+    "website_corrigido": "https://caramuru.com/"
+  },
+  "frigoestrela": {
+    "email_principal": "sales@frigoestrelasa-br.com",
+    "emails_encontrados": ["sales@frigoestrelasa-br.com", "exports@frigoestrelasa-br.com", "info@frigoestrelasa-br.com"],
+    "fonte": "https://www.frigoestrelasa-br.com/contact-us/",
+    "confianca": "Alta",
+    "website_corrigido": "https://frigoestrela.com.br/"
+  },
+  "fazenda santa rosa campanelli": {
+    "email_principal": "marketing@campanelli.agr.br",
+    "emails_encontrados": ["marketing@campanelli.agr.br", "recrutamento@campanelli.agr.br"],
+    "fonte": "https://campanelli.agr.br/contato/",
+    "confianca": "Média",
+    "website_corrigido": "https://campanelli.agr.br/"
+  },
+  "agropecuaria vista alegre (better beef confinamento)": {
+    "email_principal": "faleconosco@betterbeef.com.br",
+    "emails_encontrados": ["faleconosco@betterbeef.com.br", "rh@vistaalegre.agr.br"],
+    "fonte": "https://betterbeef.com.br/",
+    "confianca": "Alta",
+    "website_corrigido": "https://betterbeef.com.br/"
+  },
+  "maximus agronegócio - clementina": {
+    "email_principal": "financeiro@maximusagro.com.br",
+    "emails_encontrados": ["financeiro@maximusagro.com.br"],
+    "fonte": "Cadastro CNPJ / maximusagro.com.br",
+    "confianca": "Média",
+    "website_corrigido": "https://maximusagro.com.br/"
+  },
+  "maximus agronegócio - sertãozinho": {
+    "email_principal": "financeiro@maximusagro.com.br",
+    "emails_encontrados": ["financeiro@maximusagro.com.br"],
+    "fonte": "Cadastro CNPJ / maximusagro.com.br",
+    "confianca": "Média",
+    "website_corrigido": "https://maximusagro.com.br/"
+  },
+  "pamplona alimentos": {
+    "email_principal": "vendas@pamplona.com.br",
+    "emails_encontrados": ["vendas@pamplona.com.br", "sac@pamplona.com.br", "suprimentos@pamplona.com.br"],
+    "fonte": "https://www.pamplona.com.br/institucional/fale-conosco",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.pamplona.com.br/"
+  },
+  "mcassab": {
+    "email_principal": "",
+    "emails_encontrados": ["privacidade@mcassab.com.br"],
+    "fonte": "https://nutricaoesaudeanimal.mcassab.com.br/",
+    "confianca": "-",
+    "website_corrigido": "https://nutricaoesaudeanimal.mcassab.com.br/",
+    "obs_contato": "Telefone (11) 2162-7665 — comercial via formulário; e-mail geral não publicado"
+  },
+  "guabi": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "https://guabi.com.br/contato",
+    "confianca": "-",
+    "website_corrigido": "https://guabi.com.br/",
+    "obs_contato": "0800 940 3100 — atendimento via formulário (e-mail geral não publicado)"
+  },
+  "mogiana alimentos": {
+    "email_principal": "",
+    "emails_encontrados": [],
+    "fonte": "Pertence à Guabi / BRF Pet",
+    "confianca": "-",
+    "website_corrigido": "https://guabi.com.br/",
+    "obs_contato": "Mesmo canal Guabi: 0800 940 3100"
+  },
+  "total/neovia (adm)": {
+    "email_principal": "contato.br@adm.com",
+    "emails_encontrados": ["contato.br@adm.com"],
+    "fonte": "ADM do Brasil / admnutricaoanimal.com.br",
+    "confianca": "Média",
+    "website_corrigido": "https://www.admnutricaoanimal.com.br/",
+    "obs_contato": "SAC ADM: 0800-7041241"
+  },
+  "usina cerradinho bio - neomille": {
+    "email_principal": "comercialcoprodutos@cerradinho.com.br",
+    "emails_encontrados": ["comercialcoprodutos@cerradinho.com.br", "ri@cerradinho.com.br"],
+    "fonte": "https://www.cerradinhobio.com.br/negocios-e-atividades/neomille/",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.cerradinhobio.com.br/"
+  },
+  "usina rio verde ltda (decal)": {
+    "email_principal": "recrutamento@usinarioverde.com.br",
+    "emails_encontrados": ["recrutamento@usinarioverde.com.br"],
+    "fonte": "https://usinarioverde.com.br/contato",
+    "confianca": "Baixa",
+    "website_corrigido": "https://usinarioverde.com.br/",
+    "obs_contato": "Telefone (64) 2104-9000 — e-mail comercial não publicado; usar formulário"
+  },
+  "granjas perim": {
+    "email_principal": "contabil3@dperim.com.br",
+    "emails_encontrados": ["contabil3@dperim.com.br"],
+    "fonte": "Cadastro CNPJ Agropecuária Perim",
+    "confianca": "Média",
+    "obs_contato": "Telefone (28) 3546-0108"
+  },
+  "apa associação paulista avicultura": {
+    "email_principal": "secretaria@apa.com.br",
+    "emails_encontrados": ["secretaria@apa.com.br", "adm@apa.com.br", "atendimento@apa.com.br"],
+    "fonte": "http://www.apa.com.br/contato.php",
+    "confianca": "Alta",
+    "website_corrigido": "http://www.apa.com.br/"
+  },
+  "sindicereal - sindicato": {
+    "email_principal": "contato@sindicereal.com.br",
+    "emails_encontrados": ["contato@sindicereal.com.br", "executivo@sindicereal.com.br"],
+    "fonte": "https://sindicereal.com.br/home/contatos.html",
+    "confianca": "Alta",
+    "website_corrigido": "https://sindicereal.com.br/"
+  },
+  "minas nutri": {
+    "email_principal": "vagas@minasnutri.com.br",
+    "emails_encontrados": ["vagas@minasnutri.com.br"],
+    "fonte": "LinkedIn Minas Nutri",
+    "confianca": "Baixa",
+    "website_corrigido": "https://minasnutri.com/",
+    "obs_contato": "E-mail público encontrado é de RH/vagas; contato geral via telefone (35) 3712-2586 ou formulário"
+  },
+  "sopec nutrição animal": {
+    "email_principal": "crediariosopec@hotmail.com",
+    "emails_encontrados": ["crediariosopec@hotmail.com"],
+    "fonte": "https://sopec.com.br/",
+    "confianca": "Média",
+    "website_corrigido": "https://sopec.com.br/",
+    "obs_contato": "Telefone (33) 3624-3124"
+  },
+  "major nutrição animal": {
+    "email_principal": "contabilidade@majornutricao.com.br",
+    "emails_encontrados": ["contabilidade@majornutricao.com.br"],
+    "fonte": "Cadastro CNPJ / site Major",
+    "confianca": "Média",
+    "website_corrigido": "https://majornutricaoanimal.com.br/",
+    "obs_contato": "Telefone (62) 3593-4161 — comercial via formulário do site"
+  },
+  "soma nutrição animal": {
+    "email_principal": "contato@somanutricaoanimal.com.br",
+    "emails_encontrados": ["contato@somanutricaoanimal.com.br"],
+    "fonte": "LinkedIn / site Soma",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.somanutricaoanimal.com.br/"
+  },
+  "de heus": {
+    "email_principal": "contato@deheus.com",
+    "emails_encontrados": ["contato@deheus.com"],
+    "fonte": "https://www.deheus.com.br/contato",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.deheus.com.br/"
+  },
+  "coopatos": {
+    "email_principal": "agropecuaria.gerencia@coopatos.com.br",
+    "emails_encontrados": ["agropecuaria.gerencia@coopatos.com.br", "mkt.assistencia@coopatos.com.br"],
+    "fonte": "https://coopatos.com.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://coopatos.com.br"
+  },
+  "rações patense": {
+    "email_principal": "vendas@patense.com.br",
+    "emails_encontrados": ["vendas@patense.com.br", "sales@patense.com.br"],
+    "fonte": "Política ESG Patense",
+    "confianca": "Alta",
+    "website_corrigido": "https://patense.com.br"
+  },
+  "cooxupe": {
+    "email_principal": "faleconosco@cooxupe.com.br",
+    "emails_encontrados": ["faleconosco@cooxupe.com.br"],
+    "fonte": "Relatório Cooxupé",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.cooxupe.com.br"
+  },
+  "premier pet": {
+    "email_principal": "contato@premierpet.com.br",
+    "emails_encontrados": ["contato@premierpet.com.br"],
+    "fonte": "https://premierpet.com.br/fale-conosco/",
+    "confianca": "Alta",
+    "website_corrigido": "https://premierpet.com.br"
+  },
+  "special dog": {
+    "email_principal": "specialdog@specialdog.com",
+    "emails_encontrados": ["specialdog@specialdog.com"],
+    "fonte": "Facebook oficial Special Dog",
+    "confianca": "Alta",
+    "website_corrigido": "https://specialdog.com.br"
+  },
+  "rivelli": {
+    "email_principal": "rivelli@rivelli.ind.br",
+    "emails_encontrados": ["rivelli@rivelli.ind.br", "sac@rivelli.ind.br"],
+    "fonte": "https://www.rivelli.ind.br",
+    "confianca": "Alta",
+    "website_corrigido": "https://www.rivelli.ind.br"
+  },
+  "ccpr - itambé": {
+    "email_principal": "ouvidoria@ccpr.coop.br",
+    "emails_encontrados": ["ouvidoria@ccpr.coop.br"],
+    "fonte": "Site CCPR",
+    "confianca": "Média",
+    "website_corrigido": "https://ccpr.coop.br",
+    "obs_contato": "0800 970 4190"
+  },
+  "dsm (tortuga)": {
+    "email_principal": "digital.comms@dsm-firmenich.com",
+    "emails_encontrados": ["digital.comms@dsm-firmenich.com"],
+    "fonte": "DSM-Firmenich",
+    "confianca": "Média",
+    "website_corrigido": "https://www.dsm-firmenich.com",
+    "obs_contato": "Telefone (11) 5224-4300 — contato comercial preferencial via formulário"
+  },
+  "jsb - confinamentos": {
+    "email_principal": "sac.alimentos@friboi.com.br",
+    "emails_encontrados": ["sac.alimentos@friboi.com.br"],
+    "fonte": "Friboi/JBS",
+    "confianca": "Média",
+    "website_corrigido": "https://www.friboi.com.br",
+    "obs_contato": "Possível vínculo JBS/Friboi — confirmar unidade"
+  },
+  "boitel jbs guaiçara - confinamento bovino": {
+    "email_principal": "sac.alimentos@friboi.com.br",
+    "emails_encontrados": ["sac.alimentos@friboi.com.br"],
+    "fonte": "Friboi/JBS",
+    "confianca": "Média",
+    "obs_contato": "Telefone (11) 99718-9809"
+  },
+  "jbs/seara": {
+    "email_principal": "imprensa@jbs.com.br",
+    "emails_encontrados": ["imprensa@jbs.com.br"],
+    "fonte": "https://www.jbs.com.br/contato/",
+    "confianca": "Média",
+    "website_corrigido": "https://seara.com.br",
+    "obs_contato": "PJ Seara: 0800 047 3031 / formulário searafoodsolutions.com.br/contato — website vibra.com.br no CSV parece inconsistente"
+  }
+}
