@@ -1,0 +1,16 @@
+{
+  "name": "Currículo Alison — static site",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static résumé site over HTTP. Open http://localhost:8000/ for the interactive page (index.html) or http://localhost:8000/curriculum.html for the print/PDF-style layout."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web",
+      "port": 8000
+    }
+  ]
+}
